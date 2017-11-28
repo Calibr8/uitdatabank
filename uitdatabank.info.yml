@@ -1,0 +1,16 @@
+name: Uitdatabank
+type: module
+description: 'Uitdatabank SAPI 3 integration.'
+core: 8.x
+version: 1.0
+package: Cultuurnet
+dependencies:
+  - address
+  - datetime
+  - geofield
+  - link
+  - migrate_plus
+  - migrate_tools
+  - taxonomy
+  - telephone
+  - text
