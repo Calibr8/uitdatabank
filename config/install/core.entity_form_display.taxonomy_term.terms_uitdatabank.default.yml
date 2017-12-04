@@ -1,0 +1,41 @@
+uuid: 231094d3-0b6f-445f-a96d-bf48739bf8fa
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.terms_uitdatabank.field_uitdatabank_terms_domain
+    - field.field.taxonomy_term.terms_uitdatabank.field_uitdatabank_terms_id
+    - taxonomy.vocabulary.terms_uitdatabank
+id: taxonomy_term.terms_uitdatabank.default
+targetEntityType: taxonomy_term
+bundle: terms_uitdatabank
+mode: default
+content:
+  field_uitdatabank_terms_domain:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uitdatabank_terms_id:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true

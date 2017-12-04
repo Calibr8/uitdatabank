@@ -1,6 +1,6 @@
 id: uitdatabank
 label: UiTdatabank
-description: Sync data from UiTdatabank.
+description: 'Sync data from UiTdatabank.'
 source_type: Json
 shared_configuration:
   source:

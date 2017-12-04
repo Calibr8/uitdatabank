@@ -1,0 +1,11 @@
+uuid: 42c30e08-d0e2-47ce-8e07-75e0e5a08210
+langcode: nl
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.terms_uitdatabank
+id: taxonomy_term.terms_uitdatabank
+target_entity_type_id: taxonomy_term
+target_bundle: terms_uitdatabank
+default_langcode: site_default
+language_alterable: false

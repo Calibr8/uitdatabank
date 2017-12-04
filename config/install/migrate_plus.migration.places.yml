@@ -1,0 +1,42 @@
+id: uitdatabank_places
+label: 'JSON feed of Places'
+migration_group: uitdatabank
+migration_dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - uitdatabank
+source:
+  plugin: places
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'https://search.uitdatabank.be/places/?start=0&limit=2&embed=true&createdFrom=2017-11-26T12:08:01+01:00'
+  item_selector: 1
+  fields:
+    -
+      name: machine_name
+      label: 'Unique position identifier'
+      selector: sourceid
+    -
+      name: friendly_name
+      label: 'Position name'
+      selector: name
+  ids:
+    machine_name:
+      type: string
+destination:
+  plugin: 'entity:node'
+process:
+  id: machine_name
+  label: friendly_name
+  uid:
+    plugin: default_value
+    default_value: 1
+  langcode:
+    plugin: default_value
+    default_value: nl
+  status:
+    plugin: default_value
+    default_value: 1
+    created: insertiondate
+    changed: insertiondate

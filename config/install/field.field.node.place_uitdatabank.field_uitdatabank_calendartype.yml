@@ -1,0 +1,19 @@
+uuid: af29bdfa-19b1-496b-8b13-727fda321f0f
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_calendartype
+    - node.type.place_uitdatabank
+id: node.place_uitdatabank.field_uitdatabank_calendartype
+field_name: field_uitdatabank_calendartype
+entity_type: node
+bundle: place_uitdatabank
+label: 'Calendar Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

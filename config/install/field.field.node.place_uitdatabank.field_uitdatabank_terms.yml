@@ -1,0 +1,29 @@
+uuid: 44fff50a-4b96-41b8-a848-33683c40c5e4
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_terms
+    - node.type.place_uitdatabank
+    - taxonomy.vocabulary.terms_uitdatabank
+id: node.place_uitdatabank.field_uitdatabank_terms
+field_name: field_uitdatabank_terms
+entity_type: node
+bundle: place_uitdatabank
+label: 'Terms (UiTdatabank)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      terms_uitdatabank: terms_uitdatabank
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

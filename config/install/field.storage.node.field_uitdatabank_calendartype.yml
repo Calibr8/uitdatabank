@@ -1,0 +1,21 @@
+uuid: 308524af-05d1-4afe-909a-bb71a60f5f5e
+langcode: nl
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_uitdatabank_calendartype
+field_name: field_uitdatabank_calendartype
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

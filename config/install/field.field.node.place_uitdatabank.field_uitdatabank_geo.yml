@@ -1,0 +1,21 @@
+uuid: 155c3e07-78b5-4602-9c45-3c9e85d9ecdd
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_geo
+    - node.type.place_uitdatabank
+  module:
+    - geofield
+id: node.place_uitdatabank.field_uitdatabank_geo
+field_name: field_uitdatabank_geo
+entity_type: node
+bundle: place_uitdatabank
+label: Geo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

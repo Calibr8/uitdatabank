@@ -1,0 +1,14 @@
+uuid: 5cd0f33e-fdff-4cb7-8703-d73dd3e88eba
+langcode: nl
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.labels_uitdatabank
+id: taxonomy_term.labels_uitdatabank.default
+targetEntityType: taxonomy_term
+bundle: labels_uitdatabank
+mode: default
+content: {  }
+hidden:
+  description: true
+  langcode: true

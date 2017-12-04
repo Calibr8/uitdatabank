@@ -1,0 +1,19 @@
+uuid: 501f8a71-7bf1-4a30-aa70-5fddfd6daccd
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_publisher
+    - node.type.place_uitdatabank
+id: node.place_uitdatabank.field_uitdatabank_publisher
+field_name: field_uitdatabank_publisher
+entity_type: node
+bundle: place_uitdatabank
+label: Publisher
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

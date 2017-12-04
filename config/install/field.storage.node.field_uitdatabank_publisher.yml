@@ -1,0 +1,21 @@
+uuid: 14315e89-0eb8-45b0-94d6-7dcc354c7af3
+langcode: nl
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_uitdatabank_publisher
+field_name: field_uitdatabank_publisher
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

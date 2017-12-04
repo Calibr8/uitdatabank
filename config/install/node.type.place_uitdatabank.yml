@@ -1,0 +1,20 @@
+uuid: 0f93d46c-3597-4247-9513-19c13f363694
+langcode: nl
+status: true
+dependencies:
+  enforced:
+    module:
+      - uitdatabank
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Place (UiTdatabank)'
+type: place_uitdatabank
+description: 'Represents a Place from the UiTdatabank.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

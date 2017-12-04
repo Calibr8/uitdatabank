@@ -1,0 +1,12 @@
+uuid: 23ea0cea-5c52-4c01-b06f-1c068c713adb
+langcode: nl
+status: true
+dependencies:
+  enforced:
+    module:
+      - uitdatabank
+name: 'Terms (UiTdatabank)'
+vid: terms_uitdatabank
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,18 @@
+uuid: 75b66bec-35cd-4b47-a250-93fc69593521
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.terms_uitdatabank.field_uitdatabank_terms_domain
+    - field.field.taxonomy_term.terms_uitdatabank.field_uitdatabank_terms_id
+    - taxonomy.vocabulary.terms_uitdatabank
+id: taxonomy_term.terms_uitdatabank.default
+targetEntityType: taxonomy_term
+bundle: terms_uitdatabank
+mode: default
+content: {  }
+hidden:
+  description: true
+  field_uitdatabank_terms_domain: true
+  field_uitdatabank_terms_id: true
+  langcode: true

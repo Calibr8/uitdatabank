@@ -1,0 +1,19 @@
+uuid: f8ebd2fc-2248-4f88-837c-aea92138f391
+langcode: nl
+status: true
+dependencies:
+  module:
+    - geofield
+    - node
+id: node.field_uitdatabank_geo
+field_name: field_uitdatabank_geo
+entity_type: node
+type: geofield
+settings: {  }
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

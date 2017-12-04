@@ -1,0 +1,14 @@
+uuid: db58e69d-8af1-4526-b306-ea6d84af7424
+langcode: nl
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.hidden_labels_uitdatabank
+id: taxonomy_term.hidden_labels_uitdatabank.default
+targetEntityType: taxonomy_term
+bundle: hidden_labels_uitdatabank
+mode: default
+content: {  }
+hidden:
+  description: true
+  langcode: true

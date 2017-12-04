@@ -1,0 +1,21 @@
+uuid: 314e7c91-9d4e-4384-855b-1d9861c8424b
+langcode: nl
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_uitdatabank_terms_domain
+field_name: field_uitdatabank_terms_domain
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

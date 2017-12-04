@@ -1,0 +1,11 @@
+uuid: 0ea766ee-b1de-43e9-9dd6-553d675eef6d
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.place_uitdatabank
+id: node.place_uitdatabank
+target_entity_type_id: node
+target_bundle: place_uitdatabank
+default_langcode: nl
+language_alterable: false
