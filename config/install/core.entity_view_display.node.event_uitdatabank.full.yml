@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_creator
     - field.field.node.event_uitdatabank.field_uitdatabank_description
     - field.field.node.event_uitdatabank.field_uitdatabank_enddate
+    - field.field.node.event_uitdatabank.field_uitdatabank_hiddenlabels
     - field.field.node.event_uitdatabank.field_uitdatabank_id
     - field.field.node.event_uitdatabank.field_uitdatabank_labels
     - field.field.node.event_uitdatabank.field_uitdatabank_location
@@ -192,6 +193,7 @@ content:
 hidden:
   field_uitdatabank_audiencetype: true
   field_uitdatabank_creator: true
+  field_uitdatabank_hiddenlabels: true
   field_uitdatabank_id: true
   field_uitdatabank_publisher: true
   field_uitdatabank_same_as: true

@@ -10,7 +10,7 @@ id: node.place_uitdatabank.field_uitdatabank_labels
 field_name: field_uitdatabank_labels
 entity_type: node
 bundle: place_uitdatabank
-label: 'Labels'
+label: Labels
 description: ''
 required: false
 translatable: true
