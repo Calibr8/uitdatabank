@@ -1,0 +1,21 @@
+uuid: 4f8b30e6-4ec1-42a3-aba3-b74d900fd206
+langcode: nl
+status: true
+dependencies:
+  module:
+    - media_entity
+id: media.field_uitdatabank_img_copyright
+field_name: field_uitdatabank_img_copyright
+entity_type: media
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

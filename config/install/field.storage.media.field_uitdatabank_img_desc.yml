@@ -1,0 +1,21 @@
+uuid: 0d2e7162-b637-4f6d-81f7-1d2d5d70036e
+langcode: nl
+status: true
+dependencies:
+  module:
+    - media_entity
+id: media.field_uitdatabank_img_desc
+field_name: field_uitdatabank_img_desc
+entity_type: media
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

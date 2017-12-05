@@ -9,6 +9,8 @@ dependencies:
   - datetime
   - geofield
   - link
+  - media_entity
+  - media_entity_image
   - migrate_plus
   - migrate_tools
   - taxonomy

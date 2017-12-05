@@ -1,0 +1,11 @@
+uuid: d684cb44-57e0-4ae8-ac88-87812b153177
+langcode: nl
+status: true
+dependencies:
+  config:
+    - media_entity.bundle.image_uitdatabank
+id: media.image_uitdatabank
+target_entity_type_id: media
+target_bundle: image_uitdatabank
+default_langcode: zxx
+language_alterable: false

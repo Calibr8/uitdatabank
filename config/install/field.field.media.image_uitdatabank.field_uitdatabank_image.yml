@@ -1,0 +1,38 @@
+uuid: 035599e3-42ef-4e71-945b-5fdb0fdee07e
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_uitdatabank_image
+    - media_entity.bundle.image_uitdatabank
+  module:
+    - image
+id: media.image_uitdatabank.field_uitdatabank_image
+field_name: field_uitdatabank_image
+entity_type: media
+bundle: image_uitdatabank
+label: Image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'png, gif, jpg, jpeg'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

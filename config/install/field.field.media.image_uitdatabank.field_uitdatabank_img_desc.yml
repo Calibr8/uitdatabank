@@ -1,0 +1,19 @@
+uuid: e8fa5654-8179-4b46-82b8-38cc725a272b
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_uitdatabank_img_desc
+    - media_entity.bundle.image_uitdatabank
+id: media.image_uitdatabank.field_uitdatabank_img_desc
+field_name: field_uitdatabank_img_desc
+entity_type: media
+bundle: image_uitdatabank
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
