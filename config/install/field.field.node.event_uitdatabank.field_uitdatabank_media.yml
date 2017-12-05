@@ -1,0 +1,28 @@
+uuid: 8b8eaf45-90c2-4d49-abf1-7009c989c083
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_media
+    - media_entity.bundle.image_uitdatabank
+    - node.type.event_uitdatabank
+id: node.event_uitdatabank.field_uitdatabank_media
+field_name: field_uitdatabank_media
+entity_type: node
+bundle: event_uitdatabank
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image_uitdatabank: image_uitdatabank
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

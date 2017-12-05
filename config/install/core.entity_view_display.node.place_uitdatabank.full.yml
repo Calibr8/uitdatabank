@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.place_uitdatabank.field_uitdatabank_hiddenlabels
     - field.field.node.place_uitdatabank.field_uitdatabank_id
     - field.field.node.place_uitdatabank.field_uitdatabank_labels
+    - field.field.node.place_uitdatabank.field_uitdatabank_media
     - field.field.node.place_uitdatabank.field_uitdatabank_organizer
     - field.field.node.place_uitdatabank.field_uitdatabank_publisher
     - field.field.node.place_uitdatabank.field_uitdatabank_startdate
@@ -51,21 +52,21 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_uitdatabank_booking_descr:
-    weight: 16
+    weight: 17
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_uitdatabank_booking_email:
-    weight: 14
+    weight: 15
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_uitdatabank_booking_end:
-    weight: 18
+    weight: 19
     label: inline
     settings:
       format_type: medium
@@ -74,7 +75,7 @@ content:
     type: datetime_default
     region: content
   field_uitdatabank_booking_name:
-    weight: 15
+    weight: 16
     label: hidden
     settings:
       link_to_entity: false
@@ -82,7 +83,7 @@ content:
     type: string
     region: content
   field_uitdatabank_booking_phone:
-    weight: 13
+    weight: 14
     label: hidden
     settings:
       title: ''
@@ -90,7 +91,7 @@ content:
     type: telephone_link
     region: content
   field_uitdatabank_booking_start:
-    weight: 17
+    weight: 18
     label: inline
     settings:
       format_type: medium
@@ -99,7 +100,7 @@ content:
     type: datetime_default
     region: content
   field_uitdatabank_booking_url:
-    weight: 12
+    weight: 13
     label: hidden
     settings:
       trim_length: 80
@@ -118,14 +119,14 @@ content:
     type: list_default
     region: content
   field_uitdatabank_contact_email:
-    weight: 11
+    weight: 12
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_uitdatabank_contact_phone:
-    weight: 10
+    weight: 11
     label: hidden
     settings:
       title: ''
@@ -133,7 +134,7 @@ content:
     type: telephone_link
     region: content
   field_uitdatabank_contact_url:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       trim_length: 80
@@ -176,8 +177,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_uitdatabank_organizer:
+  field_uitdatabank_media:
+    type: entity_reference_entity_view
     weight: 8
+    region: content
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  field_uitdatabank_organizer:
+    weight: 9
     label: hidden
     settings:
       view_mode: teaser
@@ -203,7 +213,7 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_id
     - field.field.node.event_uitdatabank.field_uitdatabank_labels
     - field.field.node.event_uitdatabank.field_uitdatabank_location
+    - field.field.node.event_uitdatabank.field_uitdatabank_media
     - field.field.node.event_uitdatabank.field_uitdatabank_organizer
     - field.field.node.event_uitdatabank.field_uitdatabank_publisher
     - field.field.node.event_uitdatabank.field_uitdatabank_same_as
@@ -40,23 +41,32 @@ mode: teaser
 content:
   field_uitdatabank_description:
     type: text_default
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_uitdatabank_enddate:
     type: datetime_default
-    weight: 2
+    weight: 3
     region: content
     label: inline
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
+  field_uitdatabank_media:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_uitdatabank_startdate:
     type: datetime_default
-    weight: 1
+    weight: 2
     region: content
     label: inline
     settings:

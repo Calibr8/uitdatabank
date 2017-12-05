@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_id
     - field.field.node.event_uitdatabank.field_uitdatabank_labels
     - field.field.node.event_uitdatabank.field_uitdatabank_location
+    - field.field.node.event_uitdatabank.field_uitdatabank_media
     - field.field.node.event_uitdatabank.field_uitdatabank_organizer
     - field.field.node.event_uitdatabank.field_uitdatabank_publisher
     - field.field.node.event_uitdatabank.field_uitdatabank_same_as
@@ -60,21 +61,21 @@ content:
     type: number_integer
     region: content
   field_uitdatabank_booking_descr:
-    weight: 14
+    weight: 15
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_uitdatabank_booking_email:
-    weight: 12
+    weight: 13
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_uitdatabank_booking_end:
-    weight: 16
+    weight: 17
     label: inline
     settings:
       format_type: medium
@@ -83,7 +84,7 @@ content:
     type: datetime_default
     region: content
   field_uitdatabank_booking_name:
-    weight: 13
+    weight: 14
     label: hidden
     settings:
       link_to_entity: false
@@ -91,7 +92,7 @@ content:
     type: string
     region: content
   field_uitdatabank_booking_phone:
-    weight: 11
+    weight: 12
     label: hidden
     settings:
       title: ''
@@ -100,7 +101,7 @@ content:
     region: content
   field_uitdatabank_booking_start:
     type: datetime_default
-    weight: 15
+    weight: 16
     region: content
     label: inline
     settings:
@@ -108,7 +109,7 @@ content:
       timezone_override: ''
     third_party_settings: {  }
   field_uitdatabank_booking_url:
-    weight: 10
+    weight: 11
     label: hidden
     settings:
       trim_length: 80
@@ -151,7 +152,7 @@ content:
     type: entity_reference_label
     region: content
   field_uitdatabank_location:
-    weight: 8
+    weight: 9
     label: hidden
     settings:
       view_mode: teaser
@@ -159,8 +160,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_uitdatabank_media:
+    type: entity_reference_entity_view
+    weight: 8
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_uitdatabank_organizer:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       view_mode: teaser
@@ -186,7 +196,7 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
