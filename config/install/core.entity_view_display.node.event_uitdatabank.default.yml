@@ -41,15 +41,6 @@ bundle: event_uitdatabank
 mode: default
 content:
   field_uitdatabank_age_max:
-    weight: 21
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_uitdatabank_age_min:
     weight: 20
     label: inline
     settings:
@@ -58,53 +49,37 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
-  field_uitdatabank_audiencetype:
+  field_uitdatabank_age_min:
     weight: 19
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_uitdatabank_audiencetype:
+    weight: 18
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_uitdatabank_booking_descr:
-    weight: 14
+    weight: 13
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_uitdatabank_booking_email:
-    weight: 12
+    weight: 11
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_uitdatabank_booking_end:
-    weight: 16
-    label: inline
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_uitdatabank_booking_name:
-    weight: 13
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_uitdatabank_booking_phone:
-    weight: 11
-    label: inline
-    settings:
-      title: ''
-    third_party_settings: {  }
-    type: telephone_link
-    region: content
-  field_uitdatabank_booking_start:
     weight: 15
     label: inline
     settings:
@@ -113,8 +88,33 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_uitdatabank_booking_url:
+  field_uitdatabank_booking_name:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_uitdatabank_booking_phone:
     weight: 10
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_uitdatabank_booking_start:
+    weight: 14
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_uitdatabank_booking_url:
+    weight: 9
     label: inline
     settings:
       trim_length: 80
@@ -126,7 +126,7 @@ content:
     type: link
     region: content
   field_uitdatabank_calendartype:
-    weight: 18
+    weight: 17
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -141,7 +141,7 @@ content:
     type: string
     region: content
   field_uitdatabank_description:
-    weight: 9
+    weight: 8
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -155,14 +155,6 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_uitdatabank_hiddenlabels:
-    weight: 23
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
   field_uitdatabank_id:
     weight: 0
@@ -181,7 +173,7 @@ content:
     type: entity_reference_label
     region: content
   field_uitdatabank_location:
-    weight: 8
+    weight: 7
     label: inline
     settings:
       link: true
@@ -189,7 +181,7 @@ content:
     type: entity_reference_label
     region: content
   field_uitdatabank_organizer:
-    weight: 17
+    weight: 16
     label: inline
     settings:
       link: true
@@ -222,11 +214,12 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 22
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_uitdatabank_hiddenlabels: true
   field_uitdatabank_same_as: true
   field_uitdatabank_workflowstatus: true
   langcode: true
