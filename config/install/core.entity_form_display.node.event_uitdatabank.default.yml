@@ -1,44 +1,42 @@
-uuid: 30bd8e6f-59ca-4fcc-93b2-033a6597104f
+uuid: 4f625746-bf91-4706-84f5-9737d1cfecd5
 langcode: nl
 status: true
 dependencies:
   config:
-    - field.field.node.place_uitdatabank.field_uitdatabank_address
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_descr
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_email
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_end
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_name
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_phone
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_start
-    - field.field.node.place_uitdatabank.field_uitdatabank_booking_url
-    - field.field.node.place_uitdatabank.field_uitdatabank_calendartype
-    - field.field.node.place_uitdatabank.field_uitdatabank_contact_email
-    - field.field.node.place_uitdatabank.field_uitdatabank_contact_phone
-    - field.field.node.place_uitdatabank.field_uitdatabank_contact_url
-    - field.field.node.place_uitdatabank.field_uitdatabank_creator
-    - field.field.node.place_uitdatabank.field_uitdatabank_description
-    - field.field.node.place_uitdatabank.field_uitdatabank_enddate
-    - field.field.node.place_uitdatabank.field_uitdatabank_geo
-    - field.field.node.place_uitdatabank.field_uitdatabank_hiddenlabels
-    - field.field.node.place_uitdatabank.field_uitdatabank_id
-    - field.field.node.place_uitdatabank.field_uitdatabank_labels
-    - field.field.node.place_uitdatabank.field_uitdatabank_organizer
-    - field.field.node.place_uitdatabank.field_uitdatabank_publisher
-    - field.field.node.place_uitdatabank.field_uitdatabank_startdate
-    - field.field.node.place_uitdatabank.field_uitdatabank_terms
-    - field.field.node.place_uitdatabank.field_uitdatabank_workflowstatus
-    - node.type.place_uitdatabank
+    - field.field.node.event_uitdatabank.field_uitdatabank_age_max
+    - field.field.node.event_uitdatabank.field_uitdatabank_age_min
+    - field.field.node.event_uitdatabank.field_uitdatabank_audiencetype
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_descr
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_email
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_end
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_name
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_phone
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_start
+    - field.field.node.event_uitdatabank.field_uitdatabank_booking_url
+    - field.field.node.event_uitdatabank.field_uitdatabank_calendartype
+    - field.field.node.event_uitdatabank.field_uitdatabank_creator
+    - field.field.node.event_uitdatabank.field_uitdatabank_description
+    - field.field.node.event_uitdatabank.field_uitdatabank_enddate
+    - field.field.node.event_uitdatabank.field_uitdatabank_hiddenlabels
+    - field.field.node.event_uitdatabank.field_uitdatabank_id
+    - field.field.node.event_uitdatabank.field_uitdatabank_labels
+    - field.field.node.event_uitdatabank.field_uitdatabank_location
+    - field.field.node.event_uitdatabank.field_uitdatabank_organizer
+    - field.field.node.event_uitdatabank.field_uitdatabank_publisher
+    - field.field.node.event_uitdatabank.field_uitdatabank_same_as
+    - field.field.node.event_uitdatabank.field_uitdatabank_startdate
+    - field.field.node.event_uitdatabank.field_uitdatabank_terms
+    - field.field.node.event_uitdatabank.field_uitdatabank_workflowstatus
+    - node.type.event_uitdatabank
   module:
-    - address
     - datetime
-    - geofield
     - link
     - path
     - telephone
     - text
-id: node.place_uitdatabank.default
+id: node.event_uitdatabank.default
 targetEntityType: node
-bundle: place_uitdatabank
+bundle: event_uitdatabank
 mode: default
 content:
   created:
@@ -47,15 +45,28 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_uitdatabank_address:
-    type: address_default
-    weight: 8
-    region: content
+  field_uitdatabank_age_max:
+    weight: 14
     settings:
-      default_country: null
+      placeholder: ''
     third_party_settings: {  }
+    type: number
+    region: content
+  field_uitdatabank_age_min:
+    weight: 13
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_uitdatabank_audiencetype:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_uitdatabank_booking_descr:
-    weight: 21
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -63,7 +74,7 @@ content:
     type: string_textarea
     region: content
   field_uitdatabank_booking_email:
-    weight: 18
+    weight: 19
     settings:
       size: 60
       placeholder: ''
@@ -71,7 +82,7 @@ content:
     type: email_default
     region: content
   field_uitdatabank_booking_end:
-    weight: 23
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -85,20 +96,20 @@ content:
     type: string_textfield
     region: content
   field_uitdatabank_booking_phone:
-    weight: 17
+    weight: 18
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
     region: content
   field_uitdatabank_booking_start:
-    weight: 22
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_uitdatabank_booking_url:
-    weight: 19
+    weight: 17
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -106,44 +117,21 @@ content:
     type: link_default
     region: content
   field_uitdatabank_calendartype:
-    weight: 10
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  field_uitdatabank_contact_email:
-    weight: 16
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
-  field_uitdatabank_contact_phone:
-    weight: 15
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_uitdatabank_contact_url:
-    weight: 14
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   field_uitdatabank_creator:
-    type: string_textfield
     weight: 24
-    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_uitdatabank_description:
-    weight: 4
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -151,37 +139,39 @@ content:
     type: text_textarea
     region: content
   field_uitdatabank_enddate:
-    type: datetime_default
-    weight: 12
-    region: content
+    weight: 8
     settings: {  }
     third_party_settings: {  }
-  field_uitdatabank_geo:
-    type: geofield_latlon
-    weight: 9
+    type: datetime_default
     region: content
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
   field_uitdatabank_hiddenlabels:
-    type: entity_reference_autocomplete
-    weight: 7
-    region: content
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_uitdatabank_id:
-    type: string_textfield
-    weight: 1
+    type: entity_reference_autocomplete
     region: content
+  field_uitdatabank_id:
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_uitdatabank_labels:
-    weight: 6
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_uitdatabank_location:
+    weight: 15
     settings:
       match_operator: CONTAINS
       size: 60
@@ -190,7 +180,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_uitdatabank_organizer:
-    weight: 13
+    weight: 16
     settings:
       match_operator: CONTAINS
       size: 60
@@ -199,21 +189,29 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_uitdatabank_publisher:
-    type: string_textfield
     weight: 25
-    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_uitdatabank_startdate:
-    type: datetime_default
-    weight: 11
+    type: string_textfield
     region: content
+  field_uitdatabank_same_as:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_uitdatabank_startdate:
+    weight: 7
     settings: {  }
     third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_uitdatabank_terms:
-    weight: 5
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -222,7 +220,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_uitdatabank_workflowstatus:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -263,7 +261,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 3
+    weight: 4
     region: content
     settings:
       size: 60

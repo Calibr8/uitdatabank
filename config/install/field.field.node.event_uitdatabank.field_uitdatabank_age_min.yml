@@ -1,0 +1,23 @@
+uuid: 369240d2-31eb-4f06-8c26-c476b95ec2cf
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_age_min
+    - node.type.event_uitdatabank
+id: node.event_uitdatabank.field_uitdatabank_age_min
+field_name: field_uitdatabank_age_min
+entity_type: node
+bundle: event_uitdatabank
+label: 'Age min'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

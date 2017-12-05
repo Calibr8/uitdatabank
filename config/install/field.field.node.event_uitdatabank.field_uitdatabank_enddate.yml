@@ -1,0 +1,21 @@
+uuid: e21cfb9b-a755-4d76-aa98-03ed7b868c2b
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_enddate
+    - node.type.event_uitdatabank
+  module:
+    - datetime
+id: node.event_uitdatabank.field_uitdatabank_enddate
+field_name: field_uitdatabank_enddate
+entity_type: node
+bundle: event_uitdatabank
+label: 'End Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

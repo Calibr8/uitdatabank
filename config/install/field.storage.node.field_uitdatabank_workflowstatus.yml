@@ -4,15 +4,30 @@ status: true
 dependencies:
   module:
     - node
+    - options
 id: node.field_uitdatabank_workflowstatus
 field_name: field_uitdatabank_workflowstatus
 entity_type: node
-type: string
+type: list_string
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+  allowed_values:
+    -
+      value: DRAFT
+      label: DRAFT
+    -
+      value: READY_FOR_VALIDATION
+      label: READY_FOR_VALIDATION
+    -
+      value: APPROVED
+      label: APPROVED
+    -
+      value: REJECTED
+      label: REJECTED
+    -
+      value: DELETED
+      label: DELETED
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: 1
 translatable: true

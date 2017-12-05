@@ -1,0 +1,23 @@
+uuid: 42afb28e-91f0-4dd2-b79c-6804eba17053
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_organizer_url
+    - node.type.organizer_uitdatabank
+  module:
+    - link
+id: node.organizer_uitdatabank.field_uitdatabank_organizer_url
+field_name: field_uitdatabank_organizer_url
+entity_type: node
+bundle: organizer_uitdatabank
+label: Url
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

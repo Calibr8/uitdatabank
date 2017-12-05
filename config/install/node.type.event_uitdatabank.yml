@@ -1,0 +1,17 @@
+uuid: 2c8b3d71-4d07-4785-8be4-90e66fbc68ad
+langcode: nl
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Event (UiTdatabank)'
+type: event_uitdatabank
+description: 'Represents an Event from the UiTdatabank.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,18 @@
+uuid: 166f7274-5d25-44a1-adf5-f0387542b5d3
+langcode: nl
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_uitdatabank_booking_email
+field_name: field_uitdatabank_booking_email
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 2da19c0a-c880-4c6f-84f5-69d49f77ca16
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_contact_email
+    - node.type.organizer_uitdatabank
+id: node.organizer_uitdatabank.field_uitdatabank_contact_email
+field_name: field_uitdatabank_contact_email
+entity_type: node
+bundle: organizer_uitdatabank
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

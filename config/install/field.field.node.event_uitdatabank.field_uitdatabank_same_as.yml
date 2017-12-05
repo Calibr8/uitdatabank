@@ -1,0 +1,23 @@
+uuid: 7d556fdb-de42-4235-8c28-1f68076f82fe
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_same_as
+    - node.type.event_uitdatabank
+  module:
+    - link
+id: node.event_uitdatabank.field_uitdatabank_same_as
+field_name: field_uitdatabank_same_as
+entity_type: node
+bundle: event_uitdatabank
+label: 'Same As'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

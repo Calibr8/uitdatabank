@@ -1,11 +1,17 @@
-id: uitdatabank_places
-label: 'JSON feed of Places'
-migration_group: uitdatabank
-migration_dependencies: {  }
+uuid: 05195120-fdb8-42b9-9571-c8e7806d967b
+langcode: en
+status: true
 dependencies:
   enforced:
     module:
       - uitdatabank
+id: uitdatabank_places
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: uitdatabank
+label: 'JSON feed of Places'
 source:
   plugin: places
   data_fetcher_plugin: http
@@ -24,8 +30,6 @@ source:
   ids:
     machine_name:
       type: string
-destination:
-  plugin: 'entity:node'
 process:
   id: machine_name
   label: friendly_name
@@ -40,3 +44,6 @@ process:
     default_value: 1
     created: insertiondate
     changed: insertiondate
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

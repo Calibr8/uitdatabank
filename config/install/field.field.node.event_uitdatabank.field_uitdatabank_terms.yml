@@ -1,15 +1,15 @@
-uuid: 44fff50a-4b96-41b8-a848-33683c40c5e4
+uuid: f71532b2-5a82-4858-b19b-ea77c7a08ee7
 langcode: nl
 status: true
 dependencies:
   config:
     - field.storage.node.field_uitdatabank_terms
-    - node.type.place_uitdatabank
+    - node.type.event_uitdatabank
     - taxonomy.vocabulary.terms_uitdatabank
-id: node.place_uitdatabank.field_uitdatabank_terms
+id: node.event_uitdatabank.field_uitdatabank_terms
 field_name: field_uitdatabank_terms
 entity_type: node
-bundle: place_uitdatabank
+bundle: event_uitdatabank
 label: Terms
 description: ''
 required: false

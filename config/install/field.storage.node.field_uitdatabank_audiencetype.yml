@@ -1,28 +1,25 @@
-uuid: 308524af-05d1-4afe-909a-bb71a60f5f5e
+uuid: b09f9f36-bcdb-4f72-b3ed-ee074fed670a
 langcode: nl
 status: true
 dependencies:
   module:
     - node
     - options
-id: node.field_uitdatabank_calendartype
-field_name: field_uitdatabank_calendartype
+id: node.field_uitdatabank_audiencetype
+field_name: field_uitdatabank_audiencetype
 entity_type: node
 type: list_string
 settings:
   allowed_values:
     -
-      value: single
-      label: Single
+      value: everyone
+      label: Everyone
     -
-      value: multiple
-      label: Multiple
+      value: members
+      label: Members
     -
-      value: periodic
-      label: Periodic
-    -
-      value: permanent
-      label: Permanent
+      value: education
+      label: Education
   allowed_values_function: ''
 module: options
 locked: false

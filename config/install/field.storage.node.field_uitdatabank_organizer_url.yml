@@ -1,0 +1,19 @@
+uuid: 08abd0a4-a06d-45a8-8bfb-80c8d62907a6
+langcode: nl
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_uitdatabank_organizer_url
+field_name: field_uitdatabank_organizer_url
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

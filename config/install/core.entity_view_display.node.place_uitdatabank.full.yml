@@ -1,8 +1,9 @@
-uuid: 30bd8e6f-59ca-4fcc-93b2-033a6597104f
+uuid: 27f82c79-1cc6-4de1-8ef9-5ef36654aeef
 langcode: nl
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.place_uitdatabank.field_uitdatabank_address
     - field.field.node.place_uitdatabank.field_uitdatabank_booking_descr
     - field.field.node.place_uitdatabank.field_uitdatabank_booking_email
@@ -33,249 +34,183 @@ dependencies:
     - datetime
     - geofield
     - link
-    - path
+    - options
     - telephone
     - text
-id: node.place_uitdatabank.default
+    - user
+id: node.place_uitdatabank.full
 targetEntityType: node
 bundle: place_uitdatabank
-mode: default
+mode: full
 content:
-  created:
-    type: datetime_timestamp
-    weight: 28
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_uitdatabank_address:
     type: address_default
-    weight: 8
+    weight: 6
     region: content
-    settings:
-      default_country: null
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
   field_uitdatabank_booking_descr:
-    weight: 21
-    settings:
-      rows: 5
-      placeholder: ''
+    weight: 16
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: string_textarea
+    type: basic_string
     region: content
   field_uitdatabank_booking_email:
-    weight: 18
-    settings:
-      size: 60
-      placeholder: ''
+    weight: 14
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: email_default
+    type: email_mailto
     region: content
   field_uitdatabank_booking_end:
-    weight: 23
-    settings: {  }
+    weight: 18
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_uitdatabank_booking_name:
-    weight: 20
+    weight: 15
+    label: hidden
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: string_textfield
+    type: string
     region: content
   field_uitdatabank_booking_phone:
-    weight: 17
+    weight: 13
+    label: hidden
     settings:
-      placeholder: ''
+      title: ''
     third_party_settings: {  }
-    type: telephone_default
+    type: telephone_link
     region: content
   field_uitdatabank_booking_start:
-    weight: 22
-    settings: {  }
+    weight: 17
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_uitdatabank_booking_url:
-    weight: 19
+    weight: 12
+    label: hidden
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      trim_length: 80
+      rel: nofollow
+      target: _blank
+      url_only: false
+      url_plain: false
     third_party_settings: {  }
-    type: link_default
+    type: link
     region: content
   field_uitdatabank_calendartype:
-    weight: 10
+    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: list_default
     region: content
   field_uitdatabank_contact_email:
-    weight: 16
-    settings:
-      size: 60
-      placeholder: ''
+    weight: 11
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: email_default
+    type: email_mailto
     region: content
   field_uitdatabank_contact_phone:
-    weight: 15
+    weight: 10
+    label: hidden
     settings:
-      placeholder: ''
+      title: ''
     third_party_settings: {  }
-    type: telephone_default
+    type: telephone_link
     region: content
   field_uitdatabank_contact_url:
-    weight: 14
+    weight: 9
+    label: hidden
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      trim_length: 80
+      rel: nofollow
+      target: _blank
+      url_only: false
+      url_plain: false
     third_party_settings: {  }
-    type: link_default
+    type: link
     region: content
-  field_uitdatabank_creator:
-    type: string_textfield
-    weight: 24
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_uitdatabank_description:
-    weight: 4
-    settings:
-      rows: 5
-      placeholder: ''
+    weight: 0
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: text_textarea
+    type: text_default
     region: content
   field_uitdatabank_enddate:
     type: datetime_default
-    weight: 12
+    weight: 5
     region: content
-    settings: {  }
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
   field_uitdatabank_geo:
-    type: geofield_latlon
-    weight: 9
-    region: content
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
-  field_uitdatabank_hiddenlabels:
-    type: entity_reference_autocomplete
+    type: geofield_default
     weight: 7
     region: content
+    label: hidden
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_uitdatabank_id:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
+      output_format: wkt
     third_party_settings: {  }
   field_uitdatabank_labels:
-    weight: 6
+    weight: 2
+    label: hidden
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      link: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_label
     region: content
   field_uitdatabank_organizer:
-    weight: 13
+    weight: 8
+    label: hidden
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      view_mode: teaser
+      link: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_entity_view
     region: content
-  field_uitdatabank_publisher:
-    type: string_textfield
-    weight: 25
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_uitdatabank_startdate:
     type: datetime_default
-    weight: 11
+    weight: 4
     region: content
-    settings: {  }
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
   field_uitdatabank_terms:
-    weight: 5
+    weight: 1
+    label: hidden
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      link: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_label
     region: content
-  field_uitdatabank_workflowstatus:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  langcode:
-    type: language_select
-    weight: 0
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 31
+  links:
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 29
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 26
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 30
-    region: content
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 27
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_uitdatabank_creator: true
+  field_uitdatabank_hiddenlabels: true
+  field_uitdatabank_id: true
+  field_uitdatabank_publisher: true
+  field_uitdatabank_workflowstatus: true
+  langcode: true

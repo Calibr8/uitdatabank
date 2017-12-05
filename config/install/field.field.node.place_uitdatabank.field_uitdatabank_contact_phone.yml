@@ -1,0 +1,21 @@
+uuid: 5016ca37-5dac-44c2-8dbf-98ff42c873d7
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_contact_phone
+    - node.type.place_uitdatabank
+  module:
+    - telephone
+id: node.place_uitdatabank.field_uitdatabank_contact_phone
+field_name: field_uitdatabank_contact_phone
+entity_type: node
+bundle: place_uitdatabank
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

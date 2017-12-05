@@ -1,0 +1,21 @@
+uuid: 1fd9925d-74fe-4205-8647-2272d6bbec57
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_booking_end
+    - node.type.place_uitdatabank
+  module:
+    - datetime
+id: node.place_uitdatabank.field_uitdatabank_booking_end
+field_name: field_uitdatabank_booking_end
+entity_type: node
+bundle: place_uitdatabank
+label: 'Availability Ends'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

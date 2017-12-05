@@ -1,0 +1,28 @@
+uuid: be77439d-c99f-4fae-8b16-833aeb144067
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_organizer
+    - node.type.organizer_uitdatabank
+    - node.type.place_uitdatabank
+id: node.place_uitdatabank.field_uitdatabank_organizer
+field_name: field_uitdatabank_organizer
+entity_type: node
+bundle: place_uitdatabank
+label: Organizer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organizer_uitdatabank: organizer_uitdatabank
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

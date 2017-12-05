@@ -1,0 +1,19 @@
+uuid: e7a38be2-8c76-4c8f-b2e1-5ef927955484
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_booking_email
+    - node.type.place_uitdatabank
+id: node.place_uitdatabank.field_uitdatabank_booking_email
+field_name: field_uitdatabank_booking_email
+entity_type: node
+bundle: place_uitdatabank
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

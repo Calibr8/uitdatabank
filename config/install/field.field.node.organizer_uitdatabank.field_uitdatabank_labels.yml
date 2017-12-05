@@ -1,16 +1,16 @@
-uuid: 44fff50a-4b96-41b8-a848-33683c40c5e4
+uuid: 05c04413-9968-4267-823f-7772c5c0385a
 langcode: nl
 status: true
 dependencies:
   config:
-    - field.storage.node.field_uitdatabank_terms
-    - node.type.place_uitdatabank
-    - taxonomy.vocabulary.terms_uitdatabank
-id: node.place_uitdatabank.field_uitdatabank_terms
-field_name: field_uitdatabank_terms
+    - field.storage.node.field_uitdatabank_labels
+    - node.type.organizer_uitdatabank
+    - taxonomy.vocabulary.labels_uitdatabank
+id: node.organizer_uitdatabank.field_uitdatabank_labels
+field_name: field_uitdatabank_labels
 entity_type: node
-bundle: place_uitdatabank
-label: Terms
+bundle: organizer_uitdatabank
+label: Labels
 description: ''
 required: false
 translatable: true
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      terms_uitdatabank: terms_uitdatabank
+      labels_uitdatabank: labels_uitdatabank
     sort:
       field: name
       direction: asc

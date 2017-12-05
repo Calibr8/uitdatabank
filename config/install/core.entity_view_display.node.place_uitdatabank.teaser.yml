@@ -1,0 +1,72 @@
+uuid: a3eb2dec-8427-48ae-921b-7684cbf9b49a
+langcode: nl
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.place_uitdatabank.field_uitdatabank_address
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_descr
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_email
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_end
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_name
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_phone
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_start
+    - field.field.node.place_uitdatabank.field_uitdatabank_booking_url
+    - field.field.node.place_uitdatabank.field_uitdatabank_calendartype
+    - field.field.node.place_uitdatabank.field_uitdatabank_contact_email
+    - field.field.node.place_uitdatabank.field_uitdatabank_contact_phone
+    - field.field.node.place_uitdatabank.field_uitdatabank_contact_url
+    - field.field.node.place_uitdatabank.field_uitdatabank_creator
+    - field.field.node.place_uitdatabank.field_uitdatabank_description
+    - field.field.node.place_uitdatabank.field_uitdatabank_enddate
+    - field.field.node.place_uitdatabank.field_uitdatabank_geo
+    - field.field.node.place_uitdatabank.field_uitdatabank_hiddenlabels
+    - field.field.node.place_uitdatabank.field_uitdatabank_id
+    - field.field.node.place_uitdatabank.field_uitdatabank_labels
+    - field.field.node.place_uitdatabank.field_uitdatabank_organizer
+    - field.field.node.place_uitdatabank.field_uitdatabank_publisher
+    - field.field.node.place_uitdatabank.field_uitdatabank_startdate
+    - field.field.node.place_uitdatabank.field_uitdatabank_terms
+    - field.field.node.place_uitdatabank.field_uitdatabank_workflowstatus
+    - node.type.place_uitdatabank
+  module:
+    - text
+    - user
+id: node.place_uitdatabank.teaser
+targetEntityType: node
+bundle: place_uitdatabank
+mode: teaser
+content:
+  field_uitdatabank_description:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_uitdatabank_address: true
+  field_uitdatabank_booking_descr: true
+  field_uitdatabank_booking_email: true
+  field_uitdatabank_booking_end: true
+  field_uitdatabank_booking_name: true
+  field_uitdatabank_booking_phone: true
+  field_uitdatabank_booking_start: true
+  field_uitdatabank_booking_url: true
+  field_uitdatabank_calendartype: true
+  field_uitdatabank_contact_email: true
+  field_uitdatabank_contact_phone: true
+  field_uitdatabank_contact_url: true
+  field_uitdatabank_creator: true
+  field_uitdatabank_enddate: true
+  field_uitdatabank_geo: true
+  field_uitdatabank_hiddenlabels: true
+  field_uitdatabank_id: true
+  field_uitdatabank_labels: true
+  field_uitdatabank_organizer: true
+  field_uitdatabank_publisher: true
+  field_uitdatabank_startdate: true
+  field_uitdatabank_terms: true
+  field_uitdatabank_workflowstatus: true
+  langcode: true
+  links: true

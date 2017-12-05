@@ -1,16 +1,24 @@
-id: uitdatabank_places
-label: 'JSON feed of Places'
-migration_group: uitdatabank
-migration_dependencies: {  }
+uuid: 2b19fee8-1bcb-4326-89aa-9e069cdb299a
+langcode: en
+status: true
 dependencies:
   enforced:
     module:
       - uitdatabank
+id: uitdatabank_events
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: uitdatabank
+label: 'JSON feed of Events'
 source:
-  plugin: places
+  plugin: events
   data_fetcher_plugin: http
   data_parser_plugin: json
-  urls: 'https://search.uitdatabank.be/places/?start=0&limit=2&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524'
+  urls: 'https://search.uitdatabank.be/events/?start=0&limit=2&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524'
+  headers:
+    Accept: application/ld+json
   item_selector: 1
   fields:
     -
@@ -24,8 +32,6 @@ source:
   ids:
     machine_name:
       type: string
-destination:
-  plugin: 'entity:node'
 process:
   id: machine_name
   label: friendly_name
@@ -40,3 +46,6 @@ process:
     default_value: 1
     created: insertiondate
     changed: insertiondate
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

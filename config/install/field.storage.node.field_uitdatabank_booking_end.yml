@@ -1,0 +1,20 @@
+uuid: 2dcd6ffd-f205-41ff-a1d3-9daf014ea575
+langcode: nl
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_uitdatabank_booking_end
+field_name: field_uitdatabank_booking_end
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

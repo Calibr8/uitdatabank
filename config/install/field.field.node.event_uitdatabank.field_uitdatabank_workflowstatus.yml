@@ -1,20 +1,20 @@
-uuid: 588ab69d-f1eb-46a6-83c5-97393646e9e2
+uuid: ca7f788a-8d19-4e89-9597-165d40f5eab6
 langcode: nl
 status: true
 dependencies:
   config:
     - field.storage.node.field_uitdatabank_workflowstatus
-    - node.type.place_uitdatabank
+    - node.type.event_uitdatabank
   module:
     - options
-id: node.place_uitdatabank.field_uitdatabank_workflowstatus
+id: node.event_uitdatabank.field_uitdatabank_workflowstatus
 field_name: field_uitdatabank_workflowstatus
 entity_type: node
-bundle: place_uitdatabank
+bundle: event_uitdatabank
 label: 'Workflow Status'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

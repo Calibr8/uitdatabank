@@ -1,0 +1,21 @@
+uuid: d09ddc76-72fb-4d54-ae93-0288748ab7a6
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_startdate
+    - node.type.event_uitdatabank
+  module:
+    - datetime
+id: node.event_uitdatabank.field_uitdatabank_startdate
+field_name: field_uitdatabank_startdate
+entity_type: node
+bundle: event_uitdatabank
+label: 'Start Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,21 @@
+uuid: 9b7367d8-807c-4fca-b414-cc5762547ccf
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_booking_phone
+    - node.type.event_uitdatabank
+  module:
+    - telephone
+id: node.event_uitdatabank.field_uitdatabank_booking_phone
+field_name: field_uitdatabank_booking_phone
+entity_type: node
+bundle: event_uitdatabank
+label: Phone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

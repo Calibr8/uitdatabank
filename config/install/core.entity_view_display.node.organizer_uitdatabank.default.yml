@@ -1,0 +1,110 @@
+uuid: b7ed0fb2-7688-407c-bc24-77f58c8756f4
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_address
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_contact_email
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_contact_phone
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_contact_url
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_creator
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_hiddenlabels
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_id
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_labels
+    - field.field.node.organizer_uitdatabank.field_uitdatabank_organizer_url
+    - node.type.organizer_uitdatabank
+  module:
+    - address
+    - link
+    - telephone
+    - user
+id: node.organizer_uitdatabank.default
+targetEntityType: node
+bundle: organizer_uitdatabank
+mode: default
+content:
+  field_uitdatabank_address:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_uitdatabank_contact_email:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_uitdatabank_contact_phone:
+    weight: 108
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_uitdatabank_contact_url:
+    weight: 109
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_uitdatabank_creator:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_uitdatabank_hiddenlabels:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_uitdatabank_id:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_uitdatabank_labels:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_uitdatabank_organizer_url:
+    weight: 110
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

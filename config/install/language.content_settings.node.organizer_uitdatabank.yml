@@ -1,0 +1,11 @@
+uuid: f395057e-3416-4db5-ba20-d38b307c57ca
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.organizer_uitdatabank
+id: node.organizer_uitdatabank
+target_entity_type_id: node
+target_bundle: organizer_uitdatabank
+default_langcode: site_default
+language_alterable: false

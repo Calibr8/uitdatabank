@@ -1,0 +1,21 @@
+uuid: 5a2dc6b9-e8b9-4a38-85e4-2500b7c1cd6f
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_audiencetype
+    - node.type.event_uitdatabank
+  module:
+    - options
+id: node.event_uitdatabank.field_uitdatabank_audiencetype
+field_name: field_uitdatabank_audiencetype
+entity_type: node
+bundle: event_uitdatabank
+label: AudienceType
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

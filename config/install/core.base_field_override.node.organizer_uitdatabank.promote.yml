@@ -1,0 +1,22 @@
+uuid: 668c3add-5df6-4da0-9e15-9fbfe41eae9d
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.organizer_uitdatabank
+id: node.organizer_uitdatabank.promote
+field_name: promote
+entity_type: node
+bundle: organizer_uitdatabank
+label: 'Aangeraden op de voorpagina'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Aan
+  off_label: Uit
+field_type: boolean

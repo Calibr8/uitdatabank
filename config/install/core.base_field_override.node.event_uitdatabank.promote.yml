@@ -1,0 +1,22 @@
+uuid: 49c9ec74-c085-4eba-95a8-6f61d278d8a1
+langcode: nl
+status: true
+dependencies:
+  config:
+    - node.type.event_uitdatabank
+id: node.event_uitdatabank.promote
+field_name: promote
+entity_type: node
+bundle: event_uitdatabank
+label: 'Aangeraden op de voorpagina'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Aan
+  off_label: Uit
+field_type: boolean

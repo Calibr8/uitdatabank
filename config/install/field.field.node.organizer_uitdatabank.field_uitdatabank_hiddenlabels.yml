@@ -1,19 +1,19 @@
-uuid: 0ea8fd05-6637-432c-9381-e0224ab746ad
+uuid: 618f31a6-90cf-4798-a235-ab3a9ce92a35
 langcode: nl
 status: true
 dependencies:
   config:
     - field.storage.node.field_uitdatabank_hiddenlabels
-    - node.type.place_uitdatabank
+    - node.type.organizer_uitdatabank
     - taxonomy.vocabulary.hidden_labels_uitdatabank
-id: node.place_uitdatabank.field_uitdatabank_hiddenlabels
+id: node.organizer_uitdatabank.field_uitdatabank_hiddenlabels
 field_name: field_uitdatabank_hiddenlabels
 entity_type: node
-bundle: place_uitdatabank
+bundle: organizer_uitdatabank
 label: 'Hidden Labels'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

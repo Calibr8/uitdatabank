@@ -1,0 +1,20 @@
+uuid: e69ad855-e6c3-4ca7-b607-1d446fbade0c
+langcode: nl
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_uitdatabank_age_min
+field_name: field_uitdatabank_age_min
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

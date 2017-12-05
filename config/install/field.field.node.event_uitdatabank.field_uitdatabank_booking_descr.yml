@@ -1,0 +1,19 @@
+uuid: 2f7b50f8-ff8f-45f6-9fdc-e9924b9667e9
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_booking_descr
+    - node.type.event_uitdatabank
+id: node.event_uitdatabank.field_uitdatabank_booking_descr
+field_name: field_uitdatabank_booking_descr
+entity_type: node
+bundle: event_uitdatabank
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,17 @@
+uuid: ee40e3e4-36d2-4119-9f2d-27666e7dbee3
+langcode: nl
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Organizer (UiTdatabank)'
+type: organizer_uitdatabank
+description: 'Represents an Organizer from the UiTdatabank.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

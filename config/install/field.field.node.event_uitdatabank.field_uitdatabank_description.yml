@@ -1,0 +1,21 @@
+uuid: 22aedfcc-d140-4fa4-b1b2-1c8edda88d16
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_description
+    - node.type.event_uitdatabank
+  module:
+    - text
+id: node.event_uitdatabank.field_uitdatabank_description
+field_name: field_uitdatabank_description
+entity_type: node
+bundle: event_uitdatabank
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
