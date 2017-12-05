@@ -2,6 +2,9 @@ uuid: ee40e3e4-36d2-4119-9f2d-27666e7dbee3
 langcode: nl
 status: true
 dependencies:
+  enforced:
+    module:
+      - uitdatabank
   module:
     - menu_ui
 third_party_settings:
