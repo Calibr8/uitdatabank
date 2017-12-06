@@ -1,5 +1,5 @@
 {
-    "name": "uitdatabank",
+    "name": "calibrate/uitdatabank",
     "description": "Sync data from UiTdatabank to Drupal.",
     "type": "drupal-custom",
     "keywords": ["Drupal 8, UitDatabank, Cultuurnet"],
