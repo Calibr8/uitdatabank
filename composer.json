@@ -3,7 +3,7 @@
     "description": "Sync data from UiTdatabank to Drupal.",
     "type": "drupal-custom",
     "keywords": ["Drupal 8, UitDatabank, Cultuurnet"],
-    "homepage": "http://documentatie.uitdatabank.be/content/search_api_3/latest/",
+    "homepage": "https://github.com/Calibr8/uitdatabank",
     "license": "GPL-2.0+",
     "authors": [
         {
