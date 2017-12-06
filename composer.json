@@ -17,7 +17,7 @@
         "drupal/geofield": "^1.0@alpha",
         "drupal/media_entity": "^1.7",
         "drupal/media_entity_image": "^1.2",
-        "drupal/migrate_plus":"^2.0@beta",
-        "drupal/migrate_tools":"^2.0@beta"
+        "drupal/migrate_plus": "^4.0@beta",
+        "drupal/migrate_tools": "^4.0@beta",
     }
 }
