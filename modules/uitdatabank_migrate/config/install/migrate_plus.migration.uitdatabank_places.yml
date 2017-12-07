@@ -1,0 +1,226 @@
+dependencies:
+  enforced:
+    module:
+      - uitdatabank_migrate
+id: uitdatabank_places
+migration_group: uitdatabank
+label: 'JSON feed of Places'
+source:
+  plugin: places
+  high_water_property:
+    name: modified
+  data_fetcher_plugin: http
+  data_parser_plugin: uitdatabank_json
+  urls: 'https://search.uitdatabank.be/places/'
+  item_selector: member
+  fields:
+    -
+      name: id
+      label: '@id'
+      selector: '@id'
+    -
+      name: language
+      label: 'mainLanguage'
+      selector: mainLanguage
+    -
+      name: completedlanguage
+      label: 'completedLanguages'
+      selector: completedLanguages
+    -
+      name: address
+      label: 'address'
+      selector: address
+    -
+      name: availablefrom
+      label: 'availableFrom'
+      selector: availableFrom
+    -
+      name: availableto
+      label: 'availableTo'
+      selector: availableTo
+    -
+      name: bookinginfo_phone
+      label: 'bookingInfo/phone'
+      selector: bookingInfo/phone
+    -
+      name: bookinginfo_email
+      label: 'bookingInfo/email'
+      selector: bookingInfo/email
+    -
+      name: bookinginfo_url
+      label: 'bookingInfo/url'
+      selector: bookingInfo/url
+    -
+      name: bookinginfo_urllabel
+      label: 'bookingInfo/urlLabel'
+      selector: bookingInfo/urlLabel
+    -
+      name: bookinginfo_name
+      label: 'bookingInfo/name'
+      selector: bookingInfo/name
+    -
+      name: bookinginfo_description
+      label: 'bookingInfo/description'
+      selector: bookingInfo/description
+    -
+      name: bookinginfo_availabilitystarts
+      label: 'bookingInfo/availabilityStarts'
+      selector: bookingInfo/availabilityStarts
+    -
+      name: bookinginfo_availabilityends
+      label: 'bookingInfo/availabilityEnds'
+      selector: bookingInfo/availabilityEnds
+    -
+      name: calendartype
+      label: 'calendarType'
+      selector: calendarType
+    -
+      name: creator
+      label: 'creator'
+      selector: creator
+    -
+      name: contactpoint_phone
+      label: 'contactPoint/phone'
+      selector: contactPoint/phone
+    -
+      name: contactpoint_email
+      label: 'contactPoint/email'
+      selector: contactPoint/email
+    -
+      name: contactpoint_url
+      label: 'contactPoint/url'
+      selector: contactPoint/url
+    -
+      name: description
+      label: 'description'
+      selector: description
+    -
+      name: enddate
+      label: 'endDate'
+      selector: endDate
+    -
+      name: geo
+      label: 'geo'
+      selector: geo
+    -
+      name: image
+      label: 'image'
+      selector: image
+    -
+      name: labels
+      label: 'labels'
+      selector: labels
+    -
+      name: media
+      label: 'mediaObject'
+      selector: mediaObject
+    -
+      name: openinghours
+      label: 'openingHours'
+      selector: openingHours
+    -
+      name: organizer
+      label: 'organizer'
+      selector: organizer
+    -
+      name: priceinfo
+      label: 'priceInfo'
+      selector: priceInfo
+    -
+      name: publisher
+      label: 'publisher'
+      selector: publisher
+    -
+      name: startdate
+      label: 'startDate'
+      selector: startDate
+    -
+      name: terms
+      label: 'terms'
+      selector: terms
+    -
+      name: title
+      label: 'name'
+      selector: name
+    -
+      name: workflowstatus
+      label: 'workflowStatus'
+      selector: workflowStatus
+  ids:
+    id:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: place_uitdatabank
+  langcode:
+      plugin: default_value
+      strict: TRUE
+      default_value: nl
+      source: language
+  title: title
+  field_uitdatabank_address:
+    plugin: uitdatabank_address
+    source: address
+  field_uitdatabank_booking_phone: bookinginfo_phone
+  field_uitdatabank_booking_email: bookinginfo_email
+  field_uitdatabank_booking_name: bookinginfo_name
+  field_uitdatabank_booking_descr: bookinginfo_description
+  field_uitdatabank_booking_start:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'Y-m-d\TH:i:s'
+    timezone: 'Europe/Brussels'
+    settings:
+      validate_format: false
+    source: bookinginfo_availabilitystarts
+  field_uitdatabank_booking_end:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'Y-m-d\TH:i:s'
+    timezone: 'Europe/Brussels'
+    settings:
+      validate_format: false
+    source: bookinginfo_availabilityends
+  field_uitdatabank_booking_url:
+    plugin: uitdatabank_booking_url
+    source: bookinginfo_url
+  field_uitdatabank_calendartype: calendartype
+  field_uitdatabank_creator: creator
+  field_uitdatabank_contact_phone: contactpoint_phone
+  field_uitdatabank_contact_email: contactpoint_email
+  field_uitdatabank_contact_url: contactpoint_url
+  field_uitdatabank_description: description
+  field_uitdatabank_enddate:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'Y-m-d\TH:i:s'
+    timezone: 'Europe/Brussels'
+    settings:
+      validate_format: false
+    source: enddate
+  field_uitdatabank_geo:
+    plugin: uitdatabank_geo
+    source: geo
+  field_uitdatabank_id: id
+  field_uitdatabank_workflowstatus: workflowstatus
+  field_uitdatabank_publisher: publisher
+  field_uitdatabank_startdate:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'Y-m-d\TH:i:s'
+    timezone: 'Europe/Brussels'
+    settings:
+      validate_format: false
+    source: startdate
+  uid:
+    plugin: default_value
+    default_value: 1
+  status:
+    plugin: default_value
+    default_value: 1
+  created: insertiondate
+  changed: insertiondate
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

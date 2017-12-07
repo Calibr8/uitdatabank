@@ -1,32 +1,25 @@
-uuid: 05195120-fdb8-42b9-9571-c8e7806d967b
-langcode: en
-status: true
 dependencies:
   enforced:
     module:
-      - uitdatabank
-id: uitdatabank_places
-class: null
-field_plugin_method: null
-cck_plugin_method: null
-migration_tags: null
+      - uitdatabank_migrate
+id: uitdatabank_events
 migration_group: uitdatabank
-label: 'JSON feed of Places'
+label: 'JSON feed of Events'
 source:
-  plugin: url
+  plugin: events
   data_fetcher_plugin: http
   data_parser_plugin: json
-  urls: 'https://search.uitdatabank.be/places/?start=0&limit=2&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524'
+  urls: 'https://search.uitdatabank.be/events/?start=0&limit=2&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524'
   item_selector: member
   fields:
     -
       name: id
       label: 'Id'
-      selector: id
+      selector: '@id'
     -
       name: title
       label: 'Title'
-      selector: name
+      selector: name/nl
     -
       name: workflowstatus
       label: 'Workflow Status'
@@ -35,6 +28,9 @@ source:
     id:
       type: string
 process:
+  type:
+    plugin: default_value
+    default_value: event_uitdatabank
   id: id
   title: title
   workflowstatus: workflowstatus

@@ -1,18 +1,19 @@
 <?php
 
-namespace Drupal\uitdatabank\Plugin\migrate\source;
+namespace Drupal\uitdatabank_migrate\Plugin\migrate\source;
 
+use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
 use Drupal\migrate_plus\Plugin\migrate\source\Url;
 
 /**
- * Source plugin for the Places.
+ * Source plugin for the Events.
  *
  * @MigrateSource(
- *   id = "places"
+ *   id = "events"
  * )
  */
-class Places extends Url {
+class Events extends Url {
 
   /**
    * {@inheritdoc}

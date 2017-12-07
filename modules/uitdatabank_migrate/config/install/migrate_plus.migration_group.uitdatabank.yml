@@ -1,0 +1,15 @@
+uuid: 2b969372-c5a3-4d9d-bbf2-dbf0889498f4
+langcode: nl
+status: true
+dependencies:
+  enforced:
+    module:
+      - uitdatabank_migrate
+id: uitdatabank
+label: UiTdatabank
+description: 'Sync data from UiTdatabank.'
+source_type: Json
+module: null
+shared_configuration:
+  source:
+    key: default
