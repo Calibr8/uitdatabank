@@ -103,6 +103,10 @@ source:
       label: 'geo'
       selector: geo
     -
+      name: hidden_labels
+      label: 'hiddenLabels'
+      selector: hiddenLabels
+    -
       name: image
       label: 'image'
       selector: image
@@ -162,18 +166,8 @@ process:
   field_uitdatabank_address:
     plugin: uitdatabank_address
     source: address
-  field_uitdatabank_booking_phone: bookinginfo_phone
-  field_uitdatabank_booking_email: bookinginfo_email
-  field_uitdatabank_booking_name: bookinginfo_name
   field_uitdatabank_booking_descr: bookinginfo_description
-  field_uitdatabank_booking_start:
-    plugin: format_date
-    from_format: 'Y-m-d\TH:i:sO'
-    to_format: 'Y-m-d\TH:i:s'
-    timezone: 'Europe/Brussels'
-    settings:
-      validate_format: false
-    source: bookinginfo_availabilitystarts
+  field_uitdatabank_booking_email: bookinginfo_email
   field_uitdatabank_booking_end:
     plugin: format_date
     from_format: 'Y-m-d\TH:i:sO'
@@ -182,14 +176,24 @@ process:
     settings:
       validate_format: false
     source: bookinginfo_availabilityends
+  field_uitdatabank_booking_name: bookinginfo_name
+  field_uitdatabank_booking_phone: bookinginfo_phone
+  field_uitdatabank_booking_start:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'Y-m-d\TH:i:s'
+    timezone: 'Europe/Brussels'
+    settings:
+      validate_format: false
+    source: bookinginfo_availabilitystarts
   field_uitdatabank_booking_url:
     plugin: uitdatabank_booking_url
     source: bookinginfo_url
   field_uitdatabank_calendartype: calendartype
-  field_uitdatabank_creator: creator
   field_uitdatabank_contact_phone: contactpoint_phone
   field_uitdatabank_contact_email: contactpoint_email
   field_uitdatabank_contact_url: contactpoint_url
+  field_uitdatabank_creator: creator
   field_uitdatabank_description: description
   field_uitdatabank_enddate:
     plugin: format_date
@@ -203,7 +207,22 @@ process:
     plugin: uitdatabank_geo
     source: geo
   field_uitdatabank_id: id
-  field_uitdatabank_workflowstatus: workflowstatus
+  field_uitdatabank_hiddenlabels:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: hidden_labels
+    -
+      plugin: entity_generate
+      source: hidden_labels
+  field_uitdatabank_labels:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: labels
+    -
+      plugin: entity_generate
+      source: labels
   field_uitdatabank_publisher: publisher
   field_uitdatabank_startdate:
     plugin: format_date
@@ -213,6 +232,20 @@ process:
     settings:
       validate_format: false
     source: startdate
+  field_uitdatabank_terms:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: terms
+    -
+      plugin: uitdatabank_key_remap
+      map:
+        label: name
+        id: field_uitdatabank_terms_id
+        domain: field_uitdatabank_terms_domain
+    -
+      plugin: uitdatabank_entity_generate
+  field_uitdatabank_workflowstatus: workflowstatus
   uid:
     plugin: default_value
     default_value: 1
