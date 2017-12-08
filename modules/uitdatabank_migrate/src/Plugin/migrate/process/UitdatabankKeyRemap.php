@@ -56,17 +56,15 @@ class UitdatabankKeyRemap extends ProcessPluginBase {
    * Replace source keys with target keys.
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-
-    if (isset($value[0]) && is_array($value[0])) {
-      $value = reset($value);
-    }
-
+    $result = [];
     $map = $this->configuration['map'];
 
-    $result = [];
-    foreach ($map as $source => $target) {
-      if (isset($value[$source])) {
-        $result[$target] = $value[$source];
+    foreach ($value as $index => $item) {
+
+      foreach ($map as $source => $target) {
+        if (isset($item[$source])) {
+          $result[$index][$target] = $item[$source];
+        }
       }
     }
 

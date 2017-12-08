@@ -213,16 +213,31 @@ process:
       method: process
       source: hidden_labels
     -
-      plugin: entity_generate
-      source: hidden_labels
+      plugin: uitdatabank_entity_generate
   field_uitdatabank_labels:
     -
       plugin: skip_on_empty
       method: process
       source: labels
     -
-      plugin: entity_generate
-      source: labels
+      plugin: uitdatabank_entity_generate
+  field_uitdatabank_media:
+    -
+      plugin: uitdatabank_check_if_image
+      method: process
+      source: media
+    -
+      plugin: uitdatabank_download_image
+      path: 'public://uitdatabank/media/'
+    -
+      plugin: uitdatabank_key_remap
+      map:
+        '@id': name
+        file: field_uitdatabank_image
+        copyrightHolder: field_uitdatabank_img_copyright
+        description: field_uitdatabank_img_desc
+    -
+      plugin: uitdatabank_entity_generate
   field_uitdatabank_publisher: publisher
   field_uitdatabank_startdate:
     plugin: format_date
