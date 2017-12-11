@@ -6,5 +6,5 @@ dependencies:
 id: taxonomy_term.hidden_labels_uitdatabank
 target_entity_type_id: taxonomy_term
 target_bundle: hidden_labels_uitdatabank
-default_langcode: zxx
+default_langcode: site_default
 language_alterable: false

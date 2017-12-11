@@ -6,5 +6,5 @@ dependencies:
 id: node.place_uitdatabank
 target_entity_type_id: node
 target_bundle: place_uitdatabank
-default_langcode: nl
+default_langcode: site_default
 language_alterable: false

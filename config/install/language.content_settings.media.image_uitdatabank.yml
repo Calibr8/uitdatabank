@@ -6,5 +6,5 @@ dependencies:
 id: media.image_uitdatabank
 target_entity_type_id: media
 target_bundle: image_uitdatabank
-default_langcode: zxx
+default_langcode: site_default
 language_alterable: false
