@@ -1,6 +1,9 @@
 langcode: nl
 status: true
 dependencies:
+  enforced:
+    module:
+      - uitdatabank
   module:
     - media_entity
 id: media.field_uitdatabank_img_copyright

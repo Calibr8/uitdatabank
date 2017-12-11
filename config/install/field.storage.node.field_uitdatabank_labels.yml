@@ -1,6 +1,9 @@
 langcode: nl
 status: true
 dependencies:
+  enforced:
+    module:
+      - uitdatabank
   module:
     - node
     - taxonomy

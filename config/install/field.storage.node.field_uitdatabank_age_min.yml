@@ -1,6 +1,9 @@
 langcode: nl
 status: true
 dependencies:
+  enforced:
+    module:
+      - uitdatabank
   module:
     - node
 id: node.field_uitdatabank_age_min
