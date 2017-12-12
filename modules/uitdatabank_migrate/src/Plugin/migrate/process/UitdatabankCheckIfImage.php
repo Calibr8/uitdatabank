@@ -39,9 +39,11 @@ class UitdatabankCheckIfImage extends ProcessPluginBase {
    */
   public function process($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
-    foreach ($value as $index => $item) {
-      if ($item['@type'] != 'schema:ImageObject') {
-        unset($value[$index]);
+    if (is_array($value)) {
+      foreach ($value as $index => $item) {
+        if ($item['@type'] != 'schema:ImageObject') {
+          unset($value[$index]);
+        }
       }
     }
 
