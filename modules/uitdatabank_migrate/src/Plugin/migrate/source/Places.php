@@ -19,7 +19,7 @@ class Places extends Url {
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
-    $params = '?start=0&limit=1&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524';
+    $params = '?start=0&limit=10&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524';
 
     if (!is_array($configuration['urls'])) {
       $configuration['urls'] = [$configuration['urls'] . $params];

@@ -19,7 +19,7 @@ class Events extends Url {
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
-    $params = '?start=4&limit=1&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524';
+    $params = '?start=0&limit=30&embed=true&apiKey=270cbec1-d89d-43e5-9bac-94ca0757c524';
 
     if (!is_array($configuration['urls'])) {
       $configuration['urls'] = [$configuration['urls'] . $params];
@@ -60,7 +60,7 @@ class Events extends Url {
       $ages[$index] = (int) $age;
     }
     $row->setSourceProperty('age_min', isset($ages[0]) ? $ages[0] : 0);
-    $row->setSourceProperty('age_max', isset($ages[1]) ? $ages[1] : NULL);
+    $row->setSourceProperty('age_max', isset($ages[1]) ? $ages[1] : 0);
     unset($age, $ages, $index, $value);
 
     return parent::prepareRow($row);
