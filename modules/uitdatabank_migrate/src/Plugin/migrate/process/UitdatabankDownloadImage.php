@@ -51,7 +51,13 @@ class UitdatabankDownloadImage extends Download {
           $file_uri,
         ];
 
-        $final_destination = parent::transform($params, $migrate_executable, $row, $destination_property);
+        // Download can fail, catch this.
+        try {
+          $final_destination = parent::transform($params, $migrate_executable, $row, $destination_property);
+        }
+        catch (\Exception $e) {
+          $final_destination = NULL;
+        }
 
         if ($final_destination) {
           $file = File::create([

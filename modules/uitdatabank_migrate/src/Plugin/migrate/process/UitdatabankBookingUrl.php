@@ -19,12 +19,17 @@ class UitdatabankBookingUrl extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    $parsed = [
-      'uri' => $value,
-      'title' => $row->getSourceProperty('bookinginfo_urllabel'),
-    ];
 
-    return $parsed;
+    if ($value) {
+      $parsed = [
+        'uri' => $value,
+        'title' => $row->getSourceProperty('bookinginfo_urllabel'),
+      ];
+
+      return $parsed;
+    }
+
+    return $value;
   }
 
 }
