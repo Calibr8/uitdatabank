@@ -15,7 +15,7 @@ settings:
   is_ascii: false
   case_sensitive: false
 module: core
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }

@@ -13,7 +13,7 @@ type: entity_reference
 settings:
   target_type: node
 module: core
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }

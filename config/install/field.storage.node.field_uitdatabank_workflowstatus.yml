@@ -30,7 +30,7 @@ settings:
       label: DELETED
   allowed_values_function: ''
 module: options
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }
