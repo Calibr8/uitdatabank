@@ -1,0 +1,3 @@
+administer uitdatabank:
+  title: 'Administer uitdatabank'
+  restrict access: true

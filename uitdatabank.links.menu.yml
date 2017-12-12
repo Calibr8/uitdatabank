@@ -1,0 +1,5 @@
+uitdatabank.config:
+  title: 'UiTdatabank API Settings'
+  description: 'Configure UiTdatabank API.'
+  route_name: uitdatabank.config
+  parent: system.admin_config_services
