@@ -265,7 +265,7 @@ process:
   title: title
   type:
     plugin: default_value
-    default_value: event_uitdatabank
+    default_value: place_uitdatabank
   uid:
     plugin: default_value
     default_value: 1
