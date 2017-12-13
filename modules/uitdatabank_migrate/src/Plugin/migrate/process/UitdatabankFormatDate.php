@@ -27,53 +27,21 @@ use Drupal\migrate\Row;
  *   DateTimePlus::__construct().
  * - settings: keyed array of settings, see DateTimePlus::__construct().
  *
- * Examples:
- *
- * Example usage for date only fields (DATETIME_DATE_STORAGE_FORMAT):
- * @code
- * process:
- *   field_date:
- *     plugin: format_date
- *     from_format: 'm/d/Y'
- *     to_format: 'Y-m-d'
- *     source: event_date
- * @endcode
- *
- * If the source value was '01/05/1955' the transformed value would be
- * 1955-01-05.
- *
- * Example usage for datetime fields (DATETIME_DATETIME_STORAGE_FORMAT):
- * @code
- * process:
- *   field_time:
- *     plugin: format_date
- *     from_format: 'm/d/Y H:i:s'
- *     to_format: 'Y-m-d\TH:i:s'
- *     source: event_time
- * @endcode
- *
- * If the source value was '01/05/1955 10:43:22' the transformed value would be
- * 1955-01-05T10:43:22.
- *
  * Example usage for datetime fields with a timezone and settings:
  * @code
  * process:
  *   field_time:
- *     plugin: format_date
+ *     plugin: uitdatabank_format_date
  *     from_format: 'Y-m-d\TH:i:sO'
  *     to_format: 'Y-m-d\TH:i:s'
- *     timezone: 'America/Managua'
+ *     timezone: 'UTC'
  *     settings:
  *       validate_format: false
  *     source: event_time
  * @endcode
  *
- * If the source value was '2004-12-19T10:19:42-0600' the transformed value
- * would be 2004-12-19T10:19:42.
- *
- * @see \DateTime::createFromFormat()
- * @see \Drupal\Component\Datetime\DateTimePlus::__construct()
- * @see \Drupal\migrate\Plugin\MigrateProcessInterface
+ * If the source value was '2004-12-19T10:19:42+02:00' the transformed value
+ * would be 2004-12-19T08:19:42.
  *
  * @MigrateProcessPlugin(
  *   id = "uitdatabank_format_date"
