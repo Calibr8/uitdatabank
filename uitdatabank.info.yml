@@ -7,12 +7,14 @@ package: Cultuurnet
 dependencies:
   - address
   - datetime
+  - datetime_range
   - geofield
   - link
   - media_entity
   - media_entity_image
   - migrate_plus
   - migrate_tools
+  - scheduler
   - taxonomy
   - telephone
   - text
