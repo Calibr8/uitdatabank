@@ -259,6 +259,14 @@ process:
     strict: TRUE
     default_value: nl
     source: language
+  publish_on:
+    plugin: uitdatabank_format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    timezone: 'UTC'
+    settings:
+      validate_format: false
+    source: available_from
   status:
     plugin: default_value
     default_value: 1
@@ -269,6 +277,14 @@ process:
   uid:
     plugin: default_value
     default_value: 1
+  unpublish_on:
+    plugin: uitdatabank_format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    timezone: 'UTC'
+    settings:
+      validate_format: false
+    source: available_to
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }
