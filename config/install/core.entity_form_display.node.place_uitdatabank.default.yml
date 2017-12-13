@@ -36,8 +36,6 @@ dependencies:
     - path
     - telephone
     - text
-_core:
-  default_config_hash: DModnYoWtEp0P5beevvXfe_8BmO6KHgF05rtSa83te8
 id: node.place_uitdatabank.default
 targetEntityType: node
 bundle: place_uitdatabank

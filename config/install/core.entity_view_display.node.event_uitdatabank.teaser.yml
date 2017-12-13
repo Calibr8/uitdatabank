@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_publisher
     - field.field.node.event_uitdatabank.field_uitdatabank_same_as
     - field.field.node.event_uitdatabank.field_uitdatabank_startdate
+    - field.field.node.event_uitdatabank.field_uitdatabank_subevent
     - field.field.node.event_uitdatabank.field_uitdatabank_terms
     - field.field.node.event_uitdatabank.field_uitdatabank_workflowstatus
     - node.type.event_uitdatabank
@@ -92,6 +93,7 @@ hidden:
   field_uitdatabank_organizer: true
   field_uitdatabank_publisher: true
   field_uitdatabank_same_as: true
+  field_uitdatabank_subevent: true
   field_uitdatabank_terms: true
   field_uitdatabank_workflowstatus: true
   langcode: true
