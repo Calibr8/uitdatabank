@@ -141,6 +141,10 @@ source:
       label: 'startDate'
       selector: startDate
     -
+      name: sub_event
+      label: 'subEvent'
+      selector: 'subEvent'
+    -
       name: terms
       label: 'terms'
       selector: terms
@@ -240,6 +244,18 @@ process:
     settings:
       validate_format: false
     source: start_date
+  field_uitdatabank_subevent:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: sub_event
+    -
+      plugin: uitdatabank_sub_event
+      from_format: 'Y-m-d\TH:i:sO'
+      to_format: 'Y-m-d\TH:i:s'
+      timezone: 'UTC'
+      settings:
+        validate_format: false
   field_uitdatabank_terms:
     -
       plugin: skip_on_empty
