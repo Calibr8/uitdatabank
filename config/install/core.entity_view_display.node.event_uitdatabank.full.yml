@@ -26,11 +26,13 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_publisher
     - field.field.node.event_uitdatabank.field_uitdatabank_same_as
     - field.field.node.event_uitdatabank.field_uitdatabank_startdate
+    - field.field.node.event_uitdatabank.field_uitdatabank_subevent
     - field.field.node.event_uitdatabank.field_uitdatabank_terms
     - field.field.node.event_uitdatabank.field_uitdatabank_workflowstatus
     - node.type.event_uitdatabank
   module:
     - datetime
+    - datetime_range
     - link
     - options
     - telephone
@@ -60,21 +62,21 @@ content:
     type: number_integer
     region: content
   field_uitdatabank_booking_descr:
-    weight: 15
+    weight: 16
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_uitdatabank_booking_email:
-    weight: 13
+    weight: 14
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_uitdatabank_booking_end:
-    weight: 17
+    weight: 18
     label: inline
     settings:
       format_type: medium
@@ -83,7 +85,7 @@ content:
     type: datetime_default
     region: content
   field_uitdatabank_booking_name:
-    weight: 14
+    weight: 15
     label: hidden
     settings:
       link_to_entity: false
@@ -91,7 +93,7 @@ content:
     type: string
     region: content
   field_uitdatabank_booking_phone:
-    weight: 12
+    weight: 13
     label: hidden
     settings:
       title: ''
@@ -100,7 +102,7 @@ content:
     region: content
   field_uitdatabank_booking_start:
     type: datetime_default
-    weight: 16
+    weight: 17
     region: content
     label: inline
     settings:
@@ -108,7 +110,7 @@ content:
       timezone_override: ''
     third_party_settings: {  }
   field_uitdatabank_booking_url:
-    weight: 11
+    weight: 12
     label: hidden
     settings:
       trim_length: 80
@@ -134,7 +136,7 @@ content:
     type: text_default
     region: content
   field_uitdatabank_enddate:
-    weight: 7
+    weight: 8
     label: inline
     settings:
       format_type: medium
@@ -151,7 +153,7 @@ content:
     type: entity_reference_label
     region: content
   field_uitdatabank_location:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       view_mode: teaser
@@ -161,7 +163,7 @@ content:
     region: content
   field_uitdatabank_media:
     type: entity_reference_entity_view
-    weight: 8
+    weight: 9
     region: content
     label: hidden
     settings:
@@ -169,7 +171,7 @@ content:
       link: false
     third_party_settings: {  }
   field_uitdatabank_organizer:
-    weight: 10
+    weight: 11
     label: hidden
     settings:
       view_mode: teaser
@@ -178,7 +180,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_uitdatabank_startdate:
-    weight: 6
+    weight: 7
     label: inline
     settings:
       format_type: medium
@@ -186,6 +188,16 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_uitdatabank_subevent:
+    type: daterange_default
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
   field_uitdatabank_terms:
     weight: 1
     label: hidden
@@ -195,7 +207,7 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }

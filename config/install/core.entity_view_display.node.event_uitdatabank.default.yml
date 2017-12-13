@@ -25,11 +25,13 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_publisher
     - field.field.node.event_uitdatabank.field_uitdatabank_same_as
     - field.field.node.event_uitdatabank.field_uitdatabank_startdate
+    - field.field.node.event_uitdatabank.field_uitdatabank_subevent
     - field.field.node.event_uitdatabank.field_uitdatabank_terms
     - field.field.node.event_uitdatabank.field_uitdatabank_workflowstatus
     - node.type.event_uitdatabank
   module:
     - datetime
+    - datetime_range
     - link
     - options
     - telephone
@@ -212,6 +214,16 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_uitdatabank_subevent:
+    weight: 23
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
     region: content
   field_uitdatabank_terms:
     weight: 1
