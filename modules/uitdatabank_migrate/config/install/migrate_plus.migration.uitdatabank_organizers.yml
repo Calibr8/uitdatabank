@@ -1,0 +1,100 @@
+dependencies:
+  enforced:
+    module:
+      - uitdatabank_migrate
+id: uitdatabank_organizers
+migration_group: uitdatabank
+label: 'JSON feed of Organizers'
+source:
+  plugin: organizers
+  data_fetcher_plugin: http
+  data_parser_plugin: uitdatabank_json
+  urls: 'https://search.uitdatabank.be/organizers/'
+  item_selector: member
+  fields:
+    -
+      name: address
+      label: 'address'
+      selector: address
+    -
+      name: contact_point_phone
+      label: 'contactPoint/phone'
+      selector: contactPoint/phone
+    -
+      name: contact_point_email
+      label: 'contactPoint/email'
+      selector: contactPoint/email
+    -
+      name: contact_point_url
+      label: 'contactPoint/url'
+      selector: contactPoint/url
+    -
+      name: creator
+      label: 'creator'
+      selector: creator
+    -
+      name: hidden_labels
+      label: 'hiddenLabels'
+      selector: hiddenLabels
+    -
+      name: id
+      label: '@id'
+      selector: '@id'
+    -
+      name: labels
+      label: 'labels'
+      selector: labels
+    -
+      name: name
+      label: 'name'
+      selector: name
+    -
+      name: url
+      label: 'url'
+      selector: url
+  ids:
+    id:
+      type: string
+process:
+  changed: insertiondate
+  created: insertiondate
+  field_uitdatabank_address:
+    plugin: uitdatabank_address
+    source: address
+  field_uitdatabank_contact_phone: contact_point_phone
+  field_uitdatabank_contact_email: contact_point_email
+  field_uitdatabank_contact_url: contact_point_url
+  field_uitdatabank_creator: creator
+  field_uitdatabank_id: id
+  field_uitdatabank_hiddenlabels:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: hidden_labels
+    -
+      plugin: uitdatabank_entity_generate
+  field_uitdatabank_labels:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: labels
+    -
+      plugin: uitdatabank_entity_generate
+  field_uitdatabank_organizer_url: url
+  langcode:
+    plugin: default_value
+    strict: TRUE
+    default_value: nl
+  status:
+    plugin: default_value
+    default_value: 1
+  title: name
+  type:
+    plugin: default_value
+    default_value: organizer_uitdatabank
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }
