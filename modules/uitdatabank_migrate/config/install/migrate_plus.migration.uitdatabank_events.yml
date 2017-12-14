@@ -250,6 +250,14 @@ process:
         description: field_uitdatabank_img_desc
     -
       plugin: uitdatabank_entity_generate
+  field_uitdatabank_organizer:
+    plugin: uitdatabank_migration_lookup
+    source: organizer
+    migration: uitdatabank_organizers
+    source_ids:
+      uitdatabank_organizers:
+        - 'organizer/@id'
+    stub_id: uitdatabank_organizers
   field_uitdatabank_publisher: publisher
   field_uitdatabank_same_as: same_as
   field_uitdatabank_startdate:
