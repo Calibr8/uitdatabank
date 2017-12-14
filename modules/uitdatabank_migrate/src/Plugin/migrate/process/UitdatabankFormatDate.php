@@ -75,11 +75,20 @@ class UitdatabankFormatDate extends ProcessPluginBase {
     // DateTimePlus::createFromFormat can throw exceptions, so we need to
     // explicitly check for problems.
     try {
+      /** @var \Drupal\Component\Datetime\DateTimePlus $transformed */
       $transformed = DateTimePlus::createFromFormat($fromFormat, $value, $timezone, $settings);
 
       // Force timezone.
+      /** @var \Drupal\Component\Datetime\DateTimePlus $datetimeplus */
       $datetimeplus = new DateTimePlus('now', $timezone, $settings);
       $transformed->setTimezone($datetimeplus->getTimezone());
+
+      // Catch year 2038 problem as availableTo dates can have values up to 2100.
+      // @see https://en.wikipedia.org/wiki/Year_2038_problem.
+      if ($transformed->getTimestamp() > 2147483647) {
+        $transformed->setTimestamp(2147483647);
+      }
+
       $transformed = $transformed->format($toFormat);
     }
     catch (\InvalidArgumentException $e) {
