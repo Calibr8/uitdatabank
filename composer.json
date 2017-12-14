@@ -2,7 +2,7 @@
     "name": "calibrate/uitdatabank",
     "description": "Sync data from UiTdatabank to Drupal.",
     "type": "drupal-custom",
-    "keywords": ["Drupal 8","UiTdatabank","Cultuurnet"],
+    "keywords": ["Drupal 8","UiTdatabank","Publiq"],
     "homepage": "https://github.com/Calibr8/uitdatabank",
     "license": "GPL-2.0+",
     "authors": [

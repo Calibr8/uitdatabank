@@ -1,8 +1,8 @@
-name: Uitdatabank Migrate
+name: UiTdatabank Migrate
 type: module
-description: 'Uitdatabank SAPI 3 integration using Migrate.'
+description: 'UiTdatabank SAPI 3 integration using Migrate.'
 core: 8.x
 version: 1.0
-package: Cultuurnet
+package: Publiq
 dependencies:
   - uitdatabank
