@@ -37,16 +37,47 @@ class UitdatabankConfiguration extends FormBase {
       '#description' => $this->t('Request your API key <a href=":url" target="_blank">here</a>', [':url' => UITDATABANK_API_KEY_REQUEST_URL]),
     ];
 
+    $form['parameters'] = array(
+      '#type' => 'details',
+      '#title' => $this->t('Endpoint parameters'),
+      '#open' => TRUE,
+    );
+
+
     // @todo: more extensive description of what is default, expected and possible.
-    $event_parameters = $settings->get('event_parameters');
-    $form['event_parameters'] = [
+    $instructions[] = $this->t('Add parameters per endpoint to narrow the imported/synced dataset for each content type.');
+    $instructions[] = $this->t('Explore <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => UITDATABANK_API_DOCUMENTATION_URL]);
+    $instructions[] = $this->t('<strong>Notes</strong>');
+    $markup = sprintf('<p>%s</p>', implode('</p><p>', $instructions));
+
+    $notes[] = $this->t('"embed=true" is always added.');
+    $markup .= sprintf('<ol><li>%s</li></ol>', implode('</li><li>', $notes));
+
+    $form['parameters'][''] = array(
+      '#type' => 'item',
+      '#markup' => $markup,
+    );
+
+    $event_parameters = $settings->get('events_parameters');
+    $form['parameters']['events_parameters'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Parameters for https://search.uitdatabank.be/events/'),
       '#default_value' => $event_parameters,
-      '#description' => $this->t('Note: "embed=true" is used by default.<br>Explore <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => UITDATABANK_API_DOCUMENTATION_URL]),
     ];
 
-    // @todo: settings for https://search.uitdatabank.be/places/
+    $places_parameters = $settings->get('places_parameters');
+    $form['parameters']['places_parameters'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Parameters for https://search.uitdatabank.be/places/'),
+      '#default_value' => $places_parameters,
+    ];
+
+    $organizers_parameters = $settings->get('organizers_parameters');
+    $form['parameters']['organizers_parameters'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Parameters for https://search.uitdatabank.be/organizers/'),
+      '#default_value' => $organizers_parameters,
+    ];
 
     $form['submit'] = [
       '#type' => 'submit',
@@ -59,19 +90,14 @@ class UitdatabankConfiguration extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     \Drupal::configFactory()
       ->getEditable('uitdatabank.settings')
       ->set('api_key', $form_state->getValue('api_key'))
-      ->set('event_parameters', $form_state->getValue('event_parameters'))
+      ->set('events_parameters', $form_state->getValue('events_parameters'))
+      ->set('places_parameters', $form_state->getValue('places_parameters'))
+      ->set('organizers_parameters', $form_state->getValue('organizers_parameters'))
       ->save();
   }
 
