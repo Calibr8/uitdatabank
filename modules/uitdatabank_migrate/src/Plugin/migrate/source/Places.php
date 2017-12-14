@@ -34,7 +34,7 @@ class Places extends Url {
       drupal_set_message('UiTdatabank API key required.', 'error');
     }
 
-    if ($event_params = $settings->get('event_parameters')) {
+    if ($event_params = $settings->get('places_parameters')) {
       $request_params[] = $event_params;
     }
 
