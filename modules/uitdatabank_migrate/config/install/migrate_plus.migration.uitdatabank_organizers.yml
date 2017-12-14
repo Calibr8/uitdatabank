@@ -10,6 +10,8 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: uitdatabank_json
   urls: 'https://search.uitdatabank.be/organizers/'
+  headers:
+    Accept: application/ld+json
   item_selector: member
   fields:
     -
