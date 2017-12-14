@@ -58,7 +58,7 @@ class Places extends Url {
     $translatable_fields = [
       'address',
       'description',
-      'title',
+      'name',
     ];
     $langcode = $row->getSourceProperty('language');
     $langcode = $langcode?: 'nl';

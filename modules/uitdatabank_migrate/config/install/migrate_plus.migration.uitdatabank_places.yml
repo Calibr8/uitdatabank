@@ -135,7 +135,7 @@ source:
       label: 'publisher'
       selector: publisher
     -
-      name: startdate
+      name: start_date
       label: 'startDate'
       selector: startDate
     -
@@ -143,11 +143,11 @@ source:
       label: 'terms'
       selector: terms
     -
-      name: title
+      name: name
       label: 'name'
       selector: name
     -
-      name: workflowstatus
+      name: workflow_status
       label: 'workflowStatus'
       selector: workflowStatus
   ids:
@@ -259,16 +259,32 @@ process:
     strict: TRUE
     default_value: nl
     source: language
+  publish_on:
+    plugin: uitdatabank_format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    timezone: 'UTC'
+    settings:
+      validate_format: false
+    source: available_from
   status:
     plugin: default_value
     default_value: 1
-  title: title
+  title: name
   type:
     plugin: default_value
     default_value: place_uitdatabank
   uid:
     plugin: default_value
     default_value: 1
+  unpublish_on:
+    plugin: uitdatabank_format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    timezone: 'UTC'
+    settings:
+      validate_format: false
+    source: available_to
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }

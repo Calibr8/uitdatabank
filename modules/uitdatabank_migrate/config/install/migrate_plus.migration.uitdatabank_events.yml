@@ -125,9 +125,17 @@ source:
       label: 'mediaObject'
       selector: mediaObject
     -
+      name: openinghours
+      label: 'openingHours'
+      selector: openingHours
+    -
       name: organizer
       label: 'organizer'
       selector: organizer
+    -
+      name: priceinfo
+      label: 'priceInfo'
+      selector: priceInfo
     -
       name: publisher
       label: 'publisher'
@@ -149,7 +157,7 @@ source:
       label: 'terms'
       selector: terms
     -
-      name: title
+      name: name
       label: 'name'
       selector: name
     -
@@ -217,6 +225,14 @@ process:
       source: labels
     -
       plugin: uitdatabank_entity_generate
+  field_uitdatabank_location:
+      plugin: uitdatabank_migration_lookup
+      source: location
+      migration: uitdatabank_places
+      source_ids:
+        uitdatabank_places:
+          - 'location/@id'
+      stub_id: uitdatabank_places
   field_uitdatabank_media:
     -
       plugin: uitdatabank_check_if_image
@@ -286,7 +302,7 @@ process:
   status:
     plugin: default_value
     default_value: 1
-  title: title
+  title: name
   type:
     plugin: default_value
     default_value: event_uitdatabank
