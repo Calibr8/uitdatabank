@@ -14,20 +14,17 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function uitdatabank_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
-  // Add canonical to page.
+  // Update canonical on page to UiTdatabank url of the Event.
   if ($entity->getType() == "event_uitdatabank" && node_is_page($entity)) {
 
     $uri = $entity->get('field_uitdatabank_same_as')->first();
     if ($uri && $uri->getValue()['uri']) {
-      $canonical = array(
-        '#type' => 'html_tag',
-        '#tag' => 'link',
-        '#attributes' => array(
-          'name' => 'canonical',
-          'content' => $uri,
-        ),
-      );
-      $build['#attached']['html_head'][] = [$canonical, 'canonical'];
+
+      foreach ($build['#attached']['html_head_link'] as $index => $item) {
+        if ($item[0]['rel'] == 'canonical') {
+          $build['#attached']['html_head_link'][$index][0]['href'] = $uri->getValue()['uri'];
+        }
+      }
     }
   }
 }
