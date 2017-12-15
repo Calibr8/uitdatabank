@@ -47,10 +47,6 @@ class UitdatabankCheckIfImage extends ProcessPluginBase {
       }
     }
 
-    if (empty($value)) {
-      throw new MigrateSkipProcessException();
-    }
-
     return $value;
   }
 

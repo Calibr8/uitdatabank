@@ -28,60 +28,82 @@ class UitdatabankDownloadImage extends Download {
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    $default_fid = \Drupal::config('uitdatabank.settings')->get('default_image');
+    $default_image = [
+      '@id' => '',
+      'copyrightHolder' => '',
+      'description' => '',
+      'file' => [
+        'target_id' => $default_fid,
+        'alt' => '',
+      ],
+    ];
 
-    foreach ($value as $index => $item) {
-      $item['file'] = NULL;
 
-      $url_parts = explode('/', $item['contentUrl']);
-      $file_name = array_pop($url_parts);
-      $file_uri = $this->configuration['path'] . $file_name;
+    if ($value) {
+      foreach ($value as $index => $item) {
+        $item['file'] = NULL;
 
-      // Check if image is already present as managed file.
-      $query = \Drupal::entityQuery('file');
-      $query->condition('uri', $file_uri);
-      $result = $query->execute();
+        $url_parts = explode('/', $item['contentUrl']);
+        $file_name = array_pop($url_parts);
+        $file_uri = $this->configuration['path'] . $file_name;
 
-      $fid = NULL;
-      if ($result) {
-        $fid = reset($result);
-      }
-      else {
-        $params = [
-          $item['contentUrl'],
-          $file_uri,
-        ];
+        // Check if image is already present as managed file.
+        $query = \Drupal::entityQuery('file');
+        $query->condition('uri', $file_uri);
+        $result = $query->execute();
 
-        // Download can fail, catch this.
-        try {
-          $final_destination = parent::transform($params, $migrate_executable, $row, $destination_property);
+        $fid = NULL;
+        if ($result) {
+          $fid = reset($result);
         }
-        catch (\Exception $e) {
-          $final_destination = NULL;
-        }
+        else {
+          $params = [
+            $item['contentUrl'],
+            $file_uri,
+          ];
 
-        if ($final_destination) {
-          $file = File::create([
-            'uid' => 1,
-            'filename' => $file_name,
-            'uri' => $final_destination,
-            'status' => 1,
-          ]);
-          $file->save();
+          // Download can fail, catch this.
+          try {
+            $final_destination = parent::transform($params, $migrate_executable, $row, $destination_property);
+          }
+          catch (\Exception $e) {
+            $final_destination = NULL;
+          }
 
-          if ($file->id()) {
-            $fid = $file->id();
+          if ($final_destination) {
+            $file = File::create([
+              'uid' => 1,
+              'filename' => $file_name,
+              'uri' => $final_destination,
+              'status' => 1,
+            ]);
+            $file->save();
+
+            if ($file->id()) {
+              $fid = $file->id();
+            }
+          }
+          else {
+            // Only add default for first image.
+            if (!$index) {
+              $fid = $default_fid;
+            }
           }
         }
-      }
 
-      if ($fid) {
-        $item['file'] = [
-          'target_id' => $fid,
-          'alt' => $item['description'],
-        ];
-      }
+        if ($fid) {
+          $item['file'] = [
+            'target_id' => $fid,
+            'alt' => $item['description'],
+          ];
+        }
 
-      $value[$index] = $item;
+        $value[$index] = $item;
+      }
+    }
+    else {
+      $value[] = $default_image;
     }
 
     return $value;
