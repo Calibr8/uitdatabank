@@ -78,8 +78,7 @@ class UitdatabankConfiguration extends FormBase {
       '#default_value' => $organizers_parameters,
     ];
 
-    $default_image = $settings->get('default_image');
-    $fid = is_array($default_image) ? reset($default_image) : $default_image;
+    $fid = $settings->get('default_image');
     $form['default_image'] = [
       '#type' => 'managed_file',
       '#title' => $this->t('Default image'),
@@ -111,11 +110,14 @@ class UitdatabankConfiguration extends FormBase {
       ->set('events_parameters', $form_state->getValue('events_parameters'))
       ->set('places_parameters', $form_state->getValue('places_parameters'))
       ->set('organizers_parameters', $form_state->getValue('organizers_parameters'))
-      ->set('default_image', $form_state->getValue('default_image'))
+      ->set('default_image', reset($form_state->getValue('default_image')))
       ->save();
 
     // @todo Check if we need to update media entities referencing the old fid
     // if fid has changed.
+
+    $message = $this->t('UiTdatabank settings saved.');
+    drupal_set_message($message);
   }
 
 }

@@ -48,8 +48,7 @@ function uitdatabank_install() {
 function uitdatabank_uninstall() {
 
   // Remove default image.
-  $default_image = \Drupal::config('uitdatabank.settings')->get('default_image');
-  $fid = is_array($default_image) ? reset($default_image) : $default_image;
+  $fid = \Drupal::config('uitdatabank.settings')->get('default_image');
   if ($fid) {
     file_delete($fid);
   }
