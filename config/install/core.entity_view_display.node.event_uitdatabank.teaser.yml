@@ -29,9 +29,11 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_subevent
     - field.field.node.event_uitdatabank.field_uitdatabank_terms
     - field.field.node.event_uitdatabank.field_uitdatabank_workflowstatus
+    - image.style.thumbnail
     - node.type.event_uitdatabank
   module:
     - datetime
+    - media_entity
     - text
     - user
 id: node.event_uitdatabank.teaser
@@ -56,13 +58,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
   field_uitdatabank_media:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     weight: 0
     region: content
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_style: thumbnail
+      image_link: content
     third_party_settings: {  }
   field_uitdatabank_startdate:
     type: datetime_default

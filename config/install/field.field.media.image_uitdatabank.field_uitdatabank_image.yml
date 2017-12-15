@@ -17,7 +17,7 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: 'uitdatabank/media'
+  file_directory: uitdatabank/media
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

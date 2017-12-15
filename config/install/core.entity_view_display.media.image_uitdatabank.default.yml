@@ -5,7 +5,6 @@ dependencies:
     - field.field.media.image_uitdatabank.field_uitdatabank_image
     - field.field.media.image_uitdatabank.field_uitdatabank_img_copyright
     - field.field.media.image_uitdatabank.field_uitdatabank_img_desc
-    - image.style.thumbnail
     - media_entity.bundle.image_uitdatabank
   module:
     - image
@@ -15,19 +14,9 @@ targetEntityType: media
 bundle: image_uitdatabank
 mode: default
 content:
-  created:
-    label: hidden
-    type: timestamp
-    weight: 0
-    region: content
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
   field_uitdatabank_image:
-    weight: 2
-    label: above
+    weight: 0
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -35,44 +24,17 @@ content:
     type: image
     region: content
   field_uitdatabank_img_copyright:
-    weight: 3
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_uitdatabank_img_desc:
-    weight: 4
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  name:
-    label: hidden
-    type: string
-    weight: -5
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  thumbnail:
-    type: image
     weight: 1
     label: hidden
     settings:
-      image_style: thumbnail
-      image_link: ''
-    region: content
+      link_to_entity: false
     third_party_settings: {  }
-  uid:
-    label: hidden
-    type: author
-    weight: 0
+    type: string
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  created: true
+  field_uitdatabank_img_desc: true
   langcode: true
+  name: true
+  thumbnail: true
+  uid: true
