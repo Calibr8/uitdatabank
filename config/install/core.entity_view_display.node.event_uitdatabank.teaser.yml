@@ -29,7 +29,7 @@ dependencies:
     - field.field.node.event_uitdatabank.field_uitdatabank_subevent
     - field.field.node.event_uitdatabank.field_uitdatabank_terms
     - field.field.node.event_uitdatabank.field_uitdatabank_workflowstatus
-    - image.style.thumbnail
+    - image.style.medium
     - node.type.event_uitdatabank
   module:
     - datetime

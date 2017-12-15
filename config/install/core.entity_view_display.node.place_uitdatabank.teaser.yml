@@ -28,8 +28,10 @@ dependencies:
     - field.field.node.place_uitdatabank.field_uitdatabank_startdate
     - field.field.node.place_uitdatabank.field_uitdatabank_terms
     - field.field.node.place_uitdatabank.field_uitdatabank_workflowstatus
+    - image.style.medium
     - node.type.place_uitdatabank
   module:
+    - media_entity
     - text
     - user
 id: node.place_uitdatabank.teaser
