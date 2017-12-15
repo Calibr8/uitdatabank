@@ -1,13 +1,16 @@
 <?php
 
 /**
- * @file Module code.
+ * @file
+ * Module code.
  */
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Form\FormStateInterface;
 
+define('UITDATABANK_DEFAULT_IMAGE', 'uitdatabank_default_image.jpg');
+define('UITDATABANK_IMAGE_DIRECTORY', 'uitdatabank');
 
 /**
  * Implements hook_entity_view().

@@ -43,7 +43,6 @@ class UitdatabankConfiguration extends FormBase {
       '#open' => TRUE,
     );
 
-
     // @todo: more extensive description of what is default, expected and possible.
     $instructions[] = $this->t('Add parameters per endpoint to narrow the imported/synced dataset for each content type.');
     $instructions[] = $this->t('Explore <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => UITDATABANK_API_DOCUMENTATION_URL]);
@@ -79,6 +78,20 @@ class UitdatabankConfiguration extends FormBase {
       '#default_value' => $organizers_parameters,
     ];
 
+    $default_image = $settings->get('default_image');
+    $fid = is_array($default_image) ? reset($default_image) : $default_image;
+    $form['default_image'] = [
+      '#type' => 'managed_file',
+      '#title' => $this->t('Default image'),
+      '#description' => $this->t('Used for Events and Places when no image is provided or copying of an image fails.'),
+      '#upload_location' => file_default_scheme() . '://' . UITDATABANK_IMAGE_DIRECTORY,
+      '#default_value' => $fid ? [$fid] : NULL,
+      '#upload_validators' => [
+        'file_validate_extensions' => ['gif png jpg jpeg'],
+      ],
+      '#required' => TRUE,
+    ];
+
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
@@ -98,7 +111,11 @@ class UitdatabankConfiguration extends FormBase {
       ->set('events_parameters', $form_state->getValue('events_parameters'))
       ->set('places_parameters', $form_state->getValue('places_parameters'))
       ->set('organizers_parameters', $form_state->getValue('organizers_parameters'))
+      ->set('default_image', $form_state->getValue('default_image'))
       ->save();
+
+    // @todo Check if we need to update media entities referencing the old fid
+    // if fid has changed.
   }
 
 }
