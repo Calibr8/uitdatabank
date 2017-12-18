@@ -13,6 +13,6 @@ type: image
 queue_thumbnail_downloads: false
 new_revision: false
 type_configuration:
-  source_field: ''
+  source_field: field_uitdatabank_image
   gather_exif: false
 field_map: {  }

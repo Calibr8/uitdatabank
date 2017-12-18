@@ -34,6 +34,7 @@ dependencies:
     - geofield
     - link
     - path
+    - scheduler
     - telephone
     - text
 id: node.place_uitdatabank.default
