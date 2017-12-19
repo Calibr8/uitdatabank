@@ -26,34 +26,34 @@ class UitdatabankOpeningHoursWidget extends WidgetBase {
     $field_items = [];
 
     $field_items['opens'] = [
-        '#type' => 'textfield',
-        '#title' => $this->t('Opening time'),
-        '#title_display' => 'before',
-        '#default_value' => isset($items[$delta]->opens) ? $items[$delta]->opens : NULL,
-        '#size' => 5,
-        '#maxlength' => 5,
-        '#description' => $this->t('E.g.: 08:00'),
-      ] + $element;
+      '#type' => 'textfield',
+      '#title' => $this->t('Opening time'),
+      '#title_display' => 'before',
+      '#default_value' => isset($items[$delta]->opens) ? $items[$delta]->opens : NULL,
+      '#size' => 5,
+      '#maxlength' => 5,
+      '#description' => $this->t('E.g.: 08:00'),
+    ] + $element;
 
     $field_items['closes'] = [
-        '#type' => 'textfield',
-        '#title' => $this->t('Closing time'),
-        '#title_display' => 'before',
-        '#default_value' => isset($items[$delta]->closes) ? $items[$delta]->closes : NULL,
-        '#size' => 5,
-        '#maxlength' => 5,
-        '#description' => $this->t('E.g.: 18:00'),
-      ] + $element;
+      '#type' => 'textfield',
+      '#title' => $this->t('Closing time'),
+      '#title_display' => 'before',
+      '#default_value' => isset($items[$delta]->closes) ? $items[$delta]->closes : NULL,
+      '#size' => 5,
+      '#maxlength' => 5,
+      '#description' => $this->t('E.g.: 18:00'),
+    ] + $element;
 
     $field_items['days_of_week'] = [
-        '#type' => 'textfield',
-        '#title' => $this->t('Days of week'),
-        '#title_display' => 'before',
-        '#default_value' => isset($items[$delta]->days_of_week) ? $items[$delta]->days_of_week : NULL,
-        '#size' => 60,
-        '#maxlength' => 255,
-        '#description' => $this->t('E.g.: monday,tuesday'),
-      ] + $element;
+      '#type' => 'textfield',
+      '#title' => $this->t('Days of week'),
+      '#title_display' => 'before',
+      '#default_value' => isset($items[$delta]->days_of_week) ? $items[$delta]->days_of_week : NULL,
+      '#size' => 60,
+      '#maxlength' => 255,
+      '#description' => $this->t('E.g.: monday,tuesday'),
+    ] + $element;
 
     return $field_items;
   }

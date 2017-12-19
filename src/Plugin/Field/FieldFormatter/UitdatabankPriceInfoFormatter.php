@@ -43,7 +43,7 @@ class UitdatabankPriceInfoFormatter extends FormatterBase {
    * @return string
    *   The textual output generated.
    *
-   * @todo: use a template file for this.
+   * @todo: see if can use a template file for this.
    */
   protected function viewValue(FieldItemInterface $item) {
     $markup = <<<MARKUP
@@ -59,7 +59,7 @@ MARKUP;
     $price = Html::escape($item->price);
     $currency = Html::escape($item->price_currency);
 
-    switch($currency) {
+    switch ($currency) {
       case 'EUR':
         $currency = '&euro;';
     }

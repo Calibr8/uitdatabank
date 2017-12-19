@@ -23,42 +23,37 @@ class UitdatabankOpeningHoursFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @todo: see if can use a template file for this.
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $elements = [];
+    $markup_wrapper = '<div class="opening-hours--wrapper">%s</div>';
+    $markup_row = '<div class="opening-hours--day opening-hours--day-%s"><div class="opening-hours--day-name">%s</div><div class="opening-hours--day-hours">%s</div></div>';
+    $markup_times = '%s - %s';
+
+    $days_of_week = [
+      'monday' => [],
+      'tuesday' => [],
+      'wednesday' => [],
+      'thursday' => [],
+      'friday' => [],
+      'saturday' => [],
+      'sunday' => [],
+    ];
 
     foreach ($items as $delta => $item) {
-      $elements[$delta] = ['#markup' => $this->viewValue($item)];
+      $days = explode(',', $item->days_of_week);
+      foreach ($days as $day) {
+        $days_of_week[trim($day)][] = sprintf($markup_times, $item->opens, $item->closes);
+      }
     }
 
-    return $elements;
-  }
+    $rows = [];
+    foreach ($days_of_week as $name => $day) {
+      $rows[] = sprintf($markup_row, Html::cleanCssIdentifier($name), $this->t(ucfirst($name)), implode(' / ', $day));
+    }
 
-  /**
-   * Generate the output appropriate for one field item.
-   *
-   * @param \Drupal\Core\Field\FieldItemInterface $item
-   *   One field item.
-   *
-   * @return string
-   *   The textual output generated.
-   *
-   * @todo: use a template file for this.
-   */
-  protected function viewValue(FieldItemInterface $item) {
-    $markup = <<<MARKUP
-      <span class="opening-hours">
-        <span class="opening-hours--opens">%s</span>
-        <span class="opening-hours--closed">%s</span>
-        <span class="opening-hours--days-of-week">%s</span>
-      </span>
-MARKUP;
-
-    $opens = Html::escape($item->opens);
-    $closes = Html::escape($item->closes);
-    $days_of_week = Html::escape($item->days_of_week);
-
-    return sprintf($markup, $opens, $closes, $days_of_week);
+    return [['#markup' => sprintf($markup_wrapper, implode('', $rows))]];
   }
 
 }
