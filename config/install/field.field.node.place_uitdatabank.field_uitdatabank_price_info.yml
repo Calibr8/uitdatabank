@@ -1,0 +1,20 @@
+langcode: nl
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uitdatabank_price_info
+    - node.type.place_uitdatabank
+  module:
+    - uitdatabank
+id: node.place_uitdatabank.field_uitdatabank_price_info
+field_name: field_uitdatabank_price_info
+entity_type: node
+bundle: place_uitdatabank
+label: 'Price Info'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uitdatabank_price_info

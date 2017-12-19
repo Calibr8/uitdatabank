@@ -22,7 +22,9 @@ dependencies:
     - field.field.node.place_uitdatabank.field_uitdatabank_id
     - field.field.node.place_uitdatabank.field_uitdatabank_labels
     - field.field.node.place_uitdatabank.field_uitdatabank_media
+    - field.field.node.place_uitdatabank.field_uitdatabank_opening_hours
     - field.field.node.place_uitdatabank.field_uitdatabank_organizer
+    - field.field.node.place_uitdatabank.field_uitdatabank_price_info
     - field.field.node.place_uitdatabank.field_uitdatabank_publisher
     - field.field.node.place_uitdatabank.field_uitdatabank_startdate
     - field.field.node.place_uitdatabank.field_uitdatabank_terms
@@ -35,6 +37,7 @@ dependencies:
     - options
     - telephone
     - text
+    - uitdatabank
     - user
 id: node.place_uitdatabank.default
 targetEntityType: node
@@ -174,6 +177,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_uitdatabank_opening_hours:
+    weight: 22
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: uitdatabank_opening_hours_formatter
+    region: content
   field_uitdatabank_organizer:
     weight: 18
     label: above
@@ -181,6 +191,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_uitdatabank_price_info:
+    weight: 23
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: uitdatabank_price_info_formatter
     region: content
   field_uitdatabank_startdate:
     type: datetime_default

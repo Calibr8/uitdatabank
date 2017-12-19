@@ -50,6 +50,9 @@ class UitdatabankOpeningHoursFormatter extends FormatterBase {
 
     $rows = [];
     foreach ($days_of_week as $name => $day) {
+      if (empty($day)) {
+        continue;
+      }
       $rows[] = sprintf($markup_row, Html::cleanCssIdentifier($name), $this->t(ucfirst($name)), implode(' / ', $day));
     }
 

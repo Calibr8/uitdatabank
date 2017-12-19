@@ -23,7 +23,9 @@ dependencies:
     - field.field.node.place_uitdatabank.field_uitdatabank_id
     - field.field.node.place_uitdatabank.field_uitdatabank_labels
     - field.field.node.place_uitdatabank.field_uitdatabank_media
+    - field.field.node.place_uitdatabank.field_uitdatabank_opening_hours
     - field.field.node.place_uitdatabank.field_uitdatabank_organizer
+    - field.field.node.place_uitdatabank.field_uitdatabank_price_info
     - field.field.node.place_uitdatabank.field_uitdatabank_publisher
     - field.field.node.place_uitdatabank.field_uitdatabank_startdate
     - field.field.node.place_uitdatabank.field_uitdatabank_terms
@@ -37,6 +39,7 @@ dependencies:
     - options
     - telephone
     - text
+    - uitdatabank
     - user
 id: node.place_uitdatabank.full
 targetEntityType: node
@@ -45,27 +48,27 @@ mode: full
 content:
   field_uitdatabank_address:
     type: address_default
-    weight: 6
+    weight: 8
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_uitdatabank_booking_descr:
-    weight: 17
+    weight: 19
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_uitdatabank_booking_email:
-    weight: 15
+    weight: 17
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_uitdatabank_booking_end:
-    weight: 19
+    weight: 21
     label: inline
     settings:
       format_type: medium
@@ -74,7 +77,7 @@ content:
     type: datetime_default
     region: content
   field_uitdatabank_booking_name:
-    weight: 16
+    weight: 18
     label: hidden
     settings:
       link_to_entity: false
@@ -82,7 +85,7 @@ content:
     type: string
     region: content
   field_uitdatabank_booking_phone:
-    weight: 14
+    weight: 16
     label: hidden
     settings:
       title: ''
@@ -90,7 +93,7 @@ content:
     type: telephone_link
     region: content
   field_uitdatabank_booking_start:
-    weight: 18
+    weight: 20
     label: inline
     settings:
       format_type: medium
@@ -99,7 +102,7 @@ content:
     type: datetime_default
     region: content
   field_uitdatabank_booking_url:
-    weight: 13
+    weight: 15
     label: hidden
     settings:
       trim_length: 80
@@ -111,21 +114,21 @@ content:
     type: link
     region: content
   field_uitdatabank_calendartype:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_uitdatabank_contact_email:
-    weight: 12
+    weight: 14
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_uitdatabank_contact_phone:
-    weight: 11
+    weight: 13
     label: hidden
     settings:
       title: ''
@@ -133,7 +136,7 @@ content:
     type: telephone_link
     region: content
   field_uitdatabank_contact_url:
-    weight: 10
+    weight: 12
     label: hidden
     settings:
       trim_length: 80
@@ -153,7 +156,7 @@ content:
     region: content
   field_uitdatabank_enddate:
     type: datetime_default
-    weight: 5
+    weight: 6
     region: content
     label: inline
     settings:
@@ -162,7 +165,7 @@ content:
     third_party_settings: {  }
   field_uitdatabank_geo:
     type: geofield_default
-    weight: 7
+    weight: 9
     region: content
     label: hidden
     settings:
@@ -178,15 +181,22 @@ content:
     region: content
   field_uitdatabank_media:
     type: entity_reference_entity_view
-    weight: 8
+    weight: 10
     region: content
     label: hidden
     settings:
       link: true
       view_mode: default
     third_party_settings: {  }
+  field_uitdatabank_opening_hours:
+    type: uitdatabank_opening_hours_formatter
+    weight: 7
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_uitdatabank_organizer:
-    weight: 9
+    weight: 11
     label: hidden
     settings:
       view_mode: teaser
@@ -194,9 +204,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_uitdatabank_price_info:
+    type: uitdatabank_price_info_formatter
+    weight: 3
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_uitdatabank_startdate:
     type: datetime_default
-    weight: 4
+    weight: 5
     region: content
     label: inline
     settings:
@@ -212,7 +229,7 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 20
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }

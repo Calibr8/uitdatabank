@@ -5,15 +5,14 @@ dependencies:
     module:
       - uitdatabank
   module:
-    - datetime_range
     - node
-id: node.field_uitdatabank_subevent
-field_name: field_uitdatabank_subevent
+    - uitdatabank
+id: node.field_uitdatabank_opening_hours
+field_name: field_uitdatabank_opening_hours
 entity_type: node
-type: daterange
-settings:
-  datetime_type: datetime
-module: datetime_range
+type: uitdatabank_opening_hours
+settings: {  }
+module: uitdatabank
 locked: true
 cardinality: -1
 translatable: true
