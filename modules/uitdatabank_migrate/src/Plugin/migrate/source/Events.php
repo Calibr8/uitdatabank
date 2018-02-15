@@ -52,7 +52,6 @@ class Events extends Url {
    */
   public function prepareRow(Row $row) {
 
-    // @todo: make plugin for this.
     // Handle translatable fields, also need to catch language not present
     // source.
     $translatable_fields = [

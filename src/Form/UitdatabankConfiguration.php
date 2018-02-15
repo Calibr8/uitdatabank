@@ -45,7 +45,7 @@ class UitdatabankConfiguration extends FormBase {
 
     // @todo: more extensive description of what is default, expected and possible.
     $instructions[] = $this->t('Add parameters per endpoint to narrow the imported/synced dataset for each content type.');
-    $instructions[] = $this->t('Explore <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => UITDATABANK_API_DOCUMENTATION_URL]);
+    $instructions[] = $this->t('Explore the <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => UITDATABANK_API_DOCUMENTATION_URL]);
     $instructions[] = $this->t('<strong>Notes</strong>');
     $markup = sprintf('<p>%s</p>', implode('</p><p>', $instructions));
 
