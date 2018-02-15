@@ -215,7 +215,9 @@ process:
   field_uitdatabank_contact_url: contact_point_url
   field_uitdatabank_creator: creator
   field_uitdatabank_description: description
-  #field_uitdatabank_duration: duration
+  field_uitdatabank_duration:
+    plugin: uitdatabank_duration
+    source: duration
   field_uitdatabank_enddate:
     plugin: uitdatabank_format_date
     from_format: 'Y-m-d\TH:i:sO'
