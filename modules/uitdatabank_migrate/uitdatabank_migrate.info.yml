@@ -6,3 +6,5 @@ version: 1.0
 package: Publiq
 dependencies:
   - uitdatabank
+  - migrate_plus
+  - migrate_tools

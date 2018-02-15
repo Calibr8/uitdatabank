@@ -26,6 +26,7 @@ function uitdatabank_node_view(array &$build, EntityInterface $entity, EntityVie
       foreach ($build['#attached']['html_head_link'] as $index => $item) {
         if ($item[0]['rel'] == 'canonical') {
           $build['#attached']['html_head_link'][$index][0]['href'] = $uri->getValue()['uri'];
+          break;
         }
       }
     }

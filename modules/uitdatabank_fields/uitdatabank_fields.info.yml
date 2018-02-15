@@ -1,0 +1,6 @@
+name: UiTdatabank Fields
+type: module
+description: 'UiTdatabank SAPI 3 integration: custom fields.'
+core: 8.x
+version: 1.0
+package: Publiq

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uitdatabank\Plugin\Field\FieldWidget;
+namespace Drupal\uitdatabank_fields\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;

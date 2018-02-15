@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uitdatabank\Plugin\Field\FieldFormatter;
+namespace Drupal\uitdatabank_fields\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemInterface;

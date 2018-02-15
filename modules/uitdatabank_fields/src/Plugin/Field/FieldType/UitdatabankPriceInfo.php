@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uitdatabank\Plugin\Field\FieldType;
+namespace Drupal\uitdatabank_fields\Plugin\Field\FieldType;
 
 use Drupal\Component\Utility\Random;
 use Drupal\Core\Field\FieldDefinitionInterface;

@@ -1,0 +1,29 @@
+langcode: nl
+status: true
+dependencies:
+  enforced:
+    module:
+      - uitdatabank
+  module:
+    - node
+    - options
+id: node.field_uitdatabank_duration
+field_name: field_uitdatabank_duration
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: half
+      label: 'Halve dag'
+    -
+      value: full
+      label: 'Hele dag'
+  allowed_values_function: ''
+module: options
+locked: true
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

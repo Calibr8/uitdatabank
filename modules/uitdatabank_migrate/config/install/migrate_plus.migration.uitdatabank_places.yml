@@ -119,7 +119,7 @@ source:
       label: 'mediaObject'
       selector: mediaObject
     -
-      name: openinghours
+      name: opening_hours
       label: 'openingHours'
       selector: openingHours
     -
@@ -127,7 +127,7 @@ source:
       label: 'organizer'
       selector: organizer
     -
-      name: priceinfo
+      name: price_info
       label: 'priceInfo'
       selector: priceInfo
     -
@@ -231,6 +231,9 @@ process:
         description: field_uitdatabank_img_desc
     -
       plugin: uitdatabank_entity_generate
+  field_uitdatabank_opening_hours:
+      plugin: uitdatabank_opening_hours
+      source: opening_hours
   field_uitdatabank_organizer:
     plugin: uitdatabank_migration_lookup
     source: organizer
@@ -239,6 +242,9 @@ process:
       uitdatabank_organizers:
         - 'organizer/@id'
     stub_id: uitdatabank_organizers
+  field_uitdatabank_price_info:
+    plugin: uitdatabank_price_info
+    source: price_info
   field_uitdatabank_publisher: publisher
   field_uitdatabank_startdate:
     plugin: uitdatabank_format_date
