@@ -79,7 +79,7 @@ class Events extends Url {
       $ages[$index] = (int) $age;
     }
     $row->setSourceProperty('age_min', isset($ages[0]) ? $ages[0] : 0);
-    $row->setSourceProperty('age_max', isset($ages[1]) ? $ages[1] : 0);
+    $row->setSourceProperty('age_max', isset($ages[1]) && $ages[1] ? $ages[1] : 100);
     unset($age, $ages, $index, $value);
 
     return parent::prepareRow($row);

@@ -15,6 +15,10 @@ source:
   item_selector: member
   fields:
     -
+      name: ages
+      label: 'ages'
+      selector: typicalAgeRange
+    -
       name: age_max
       label: 'typicalAgeRange (max)'
       selector: typicalAgeRange
@@ -90,6 +94,10 @@ source:
       name: creator
       label: 'creator'
       selector: creator
+    -
+      name: duration
+      label: 'duration'
+      selector: start_date
     -
       name: description
       label: 'description'
@@ -172,6 +180,9 @@ source:
 process:
   changed: insertiondate
   created: insertiondate
+  field_uitdatabank_ages:
+    plugin: uitdatabank_ages
+    source: ages
   field_uitdatabank_age_max: age_max
   field_uitdatabank_age_min: age_min
   field_uitdatabank_audiencetype: audience_type
@@ -204,6 +215,7 @@ process:
   field_uitdatabank_contact_url: contact_point_url
   field_uitdatabank_creator: creator
   field_uitdatabank_description: description
+  #field_uitdatabank_duration: duration
   field_uitdatabank_enddate:
     plugin: uitdatabank_format_date
     from_format: 'Y-m-d\TH:i:sO'
