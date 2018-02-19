@@ -8,6 +8,7 @@ dependencies:
   - address
   - datetime
   - datetime_range
+  - geocoder
   - geofield
   - link
   - media_entity

@@ -13,7 +13,7 @@ entity_type: node
 type: telephone
 settings: {  }
 module: telephone
-locked: true
+locked: false
 cardinality: 1
 translatable: true
 indexes: {  }

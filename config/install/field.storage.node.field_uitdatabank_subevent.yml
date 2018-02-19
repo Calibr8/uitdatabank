@@ -14,7 +14,7 @@ type: daterange
 settings:
   datetime_type: datetime
 module: datetime_range
-locked: true
+locked: false
 cardinality: -1
 translatable: true
 indexes: {  }

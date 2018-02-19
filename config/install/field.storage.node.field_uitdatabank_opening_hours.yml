@@ -13,7 +13,7 @@ entity_type: node
 type: uitdatabank_opening_hours
 settings: {  }
 module: uitdatabank
-locked: true
+locked: false
 cardinality: -1
 translatable: true
 indexes: {  }

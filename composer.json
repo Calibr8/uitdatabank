@@ -14,6 +14,7 @@
     ],
     "require": {
         "drupal/address": "^1.0",
+        "drupal/geocoder": "^2.0@beta",
         "drupal/geofield": "^1.0@alpha",
         "drupal/media_entity": "^1.7",
         "drupal/media_entity_image": "^1.2",

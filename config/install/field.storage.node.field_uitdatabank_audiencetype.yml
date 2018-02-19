@@ -24,7 +24,7 @@ settings:
       label: Education
   allowed_values_function: ''
 module: options
-locked: true
+locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
