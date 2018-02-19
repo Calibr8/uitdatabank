@@ -11,6 +11,8 @@ use Drupal\Core\Form\FormStateInterface;
 
 define('UITDATABANK_DEFAULT_IMAGE', 'uitdatabank_default_image.jpg');
 define('UITDATABANK_IMAGE_DIRECTORY', 'uitdatabank');
+// Max page limit is 10000, although not documented.
+define('UITDATABANK_API_PAGE_MAX_ITEMS', 10000);
 
 /**
  * Implements hook_entity_view().

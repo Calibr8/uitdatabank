@@ -57,25 +57,22 @@ class UitdatabankConfiguration extends FormBase {
       '#markup' => $markup,
     );
 
-    $event_parameters = $settings->get('events_parameters');
-    $form['parameters']['events_parameters'] = [
+    $form['parameters']['events'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Parameters for https://search.uitdatabank.be/events/'),
-      '#default_value' => $event_parameters,
+      '#default_value' => $settings->get('events'),
     ];
 
-    $places_parameters = $settings->get('places_parameters');
-    $form['parameters']['places_parameters'] = [
+    $form['parameters']['places'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Parameters for https://search.uitdatabank.be/places/'),
-      '#default_value' => $places_parameters,
+      '#default_value' => $settings->get('places'),
     ];
 
-    $organizers_parameters = $settings->get('organizers_parameters');
-    $form['parameters']['organizers_parameters'] = [
+    $form['parameters']['organizers'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Parameters for https://search.uitdatabank.be/organizers/'),
-      '#default_value' => $organizers_parameters,
+      '#default_value' => $settings->get('organizers'),
     ];
 
     $fid = $settings->get('default_image');
@@ -107,9 +104,9 @@ class UitdatabankConfiguration extends FormBase {
     \Drupal::configFactory()
       ->getEditable('uitdatabank.settings')
       ->set('api_key', $form_state->getValue('api_key'))
-      ->set('events_parameters', $form_state->getValue('events_parameters'))
-      ->set('places_parameters', $form_state->getValue('places_parameters'))
-      ->set('organizers_parameters', $form_state->getValue('organizers_parameters'))
+      ->set('events', $form_state->getValue('events'))
+      ->set('places', $form_state->getValue('places'))
+      ->set('organizers', $form_state->getValue('organizers'))
       ->set('default_image', reset($form_state->getValue('default_image')))
       ->save();
 

@@ -7,7 +7,7 @@ migration_group: uitdatabank
 label: 'JSON feed of Places'
 source:
   plugin: places
-  data_fetcher_plugin: http
+  data_fetcher_plugin: uitdatabank_http
   data_parser_plugin: uitdatabank_json
   urls: 'https://search.uitdatabank.be/places/'
   headers:
