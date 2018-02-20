@@ -9,6 +9,9 @@ dependencies:
   - datetime
   - datetime_range
   - geocoder
+  - geocoder_address
+  - geocoder_field
+  - geocoder_geofield
   - geofield
   - link
   - media_entity
