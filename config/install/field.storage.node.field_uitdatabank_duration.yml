@@ -21,7 +21,7 @@ settings:
       label: 'Hele dag'
     -
       value: inapplicable
-      label: 'N.v.t.'
+      label: N.v.t.
   allowed_values_function: ''
 module: options
 locked: false

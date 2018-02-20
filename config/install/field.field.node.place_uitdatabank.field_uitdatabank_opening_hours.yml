@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_uitdatabank_opening_hours
     - node.type.place_uitdatabank
   module:
-    - uitdatabank
+    - uitdatabank_fields
 id: node.place_uitdatabank.field_uitdatabank_opening_hours
 field_name: field_uitdatabank_opening_hours
 entity_type: node

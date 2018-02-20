@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_uitdatabank_price_info
     - node.type.event_uitdatabank
   module:
-    - uitdatabank
+    - uitdatabank_fields
 id: node.event_uitdatabank.field_uitdatabank_price_info
 field_name: field_uitdatabank_price_info
 entity_type: node

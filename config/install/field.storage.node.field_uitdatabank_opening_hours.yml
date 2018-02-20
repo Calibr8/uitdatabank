@@ -6,13 +6,13 @@ dependencies:
       - uitdatabank
   module:
     - node
-    - uitdatabank
+    - uitdatabank_fields
 id: node.field_uitdatabank_opening_hours
 field_name: field_uitdatabank_opening_hours
 entity_type: node
 type: uitdatabank_opening_hours
 settings: {  }
-module: uitdatabank
+module: uitdatabank_fields
 locked: false
 cardinality: -1
 translatable: true
