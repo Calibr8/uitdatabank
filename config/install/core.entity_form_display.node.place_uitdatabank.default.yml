@@ -39,7 +39,7 @@ dependencies:
     - scheduler
     - telephone
     - text
-    - uitdatabank
+    - uitdatabank_fields
 id: node.place_uitdatabank.default
 targetEntityType: node
 bundle: place_uitdatabank

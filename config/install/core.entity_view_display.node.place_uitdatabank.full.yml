@@ -39,7 +39,7 @@ dependencies:
     - options
     - telephone
     - text
-    - uitdatabank
+    - uitdatabank_fields
     - user
 id: node.place_uitdatabank.full
 targetEntityType: node

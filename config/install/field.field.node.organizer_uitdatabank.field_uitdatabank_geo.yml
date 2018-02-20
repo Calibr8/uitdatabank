@@ -16,12 +16,13 @@ third_party_settings:
     hidden: 0
     disabled: 1
     plugins:
-      - googlemaps
+      - openstreetmap
+      - yandex
     dumper: wkt
     delta_handling: default
     failure:
       handling: preserve
-      status_message: false
+      status_message: true
       log: true
 id: node.organizer_uitdatabank.field_uitdatabank_geo
 field_name: field_uitdatabank_geo
