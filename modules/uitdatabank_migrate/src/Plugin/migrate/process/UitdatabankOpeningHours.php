@@ -22,12 +22,14 @@ class UitdatabankOpeningHours extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $parsed = [];
 
-    foreach ($value as $index => $item) {
-      $parsed[$index] = [
-        'opens' => $item['opens'],
-        'closes' => $item['closes'],
-        'days_of_week' => implode(',', $item['dayOfWeek']),
-      ];
+    if ($value && is_array($value)) {
+      foreach ($value as $index => $item) {
+        $parsed[$index] = [
+          'opens' => $item['opens'],
+          'closes' => $item['closes'],
+          'days_of_week' => implode(',', $item['dayOfWeek']),
+        ];
+      }
     }
 
     return $parsed;
