@@ -74,10 +74,27 @@ class UitdatabankFormatDate extends ProcessPluginBase {
     // Attempts to transform the supplied date using the defined input format.
     // DateTimePlus::createFromFormat can throw exceptions, so we need to
     // explicitly check for problems.
+    $transformed = '';
     try {
       /** @var \Drupal\Component\Datetime\DateTimePlus $transformed */
       $transformed = DateTimePlus::createFromFormat($fromFormat, $value, $timezone, $settings);
+    }
+    catch (\InvalidArgumentException $e) {
+      try {
 
+        // Fallback, as API doesn't always return the default format.
+        // @todo: remove when API has been fixed.
+        $transformed = new DateTimePlus($value, $timezone, $settings);
+      }
+      catch (\UnexpectedValueException $e) {
+        throw new MigrateException(sprintf('Format date plugin could not transform "%s" using the format "%s" or Zulu time. Error: %s', $value, $fromFormat, $e->getMessage()), $e->getCode(), $e);
+      }
+    }
+    catch (\UnexpectedValueException $e) {
+      throw new MigrateException(sprintf('Format date plugin could not transform "%s" using the format "%s". Error: %s', $value, $fromFormat, $e->getMessage()), $e->getCode(), $e);
+    }
+
+    if ($transformed) {
       // Force timezone.
       /** @var \Drupal\Component\Datetime\DateTimePlus $datetimeplus */
       $datetimeplus = new DateTimePlus('now', $timezone, $settings);
@@ -90,12 +107,6 @@ class UitdatabankFormatDate extends ProcessPluginBase {
       }
 
       $transformed = $transformed->format($toFormat);
-    }
-    catch (\InvalidArgumentException $e) {
-      throw new MigrateException(sprintf('Format date plugin could not transform "%s" using the format "%s". Error: %s', $value, $fromFormat, $e->getMessage()), $e->getCode(), $e);
-    }
-    catch (\UnexpectedValueException $e) {
-      throw new MigrateException(sprintf('Format date plugin could not transform "%s" using the format "%s". Error: %s', $value, $fromFormat, $e->getMessage()), $e->getCode(), $e);
     }
 
     return $transformed;

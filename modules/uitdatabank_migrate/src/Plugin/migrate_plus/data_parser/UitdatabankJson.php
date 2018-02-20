@@ -22,7 +22,7 @@ class UitdatabankJson extends Json {
     $final_source_data = $source_data = [];
 
     do {
-      $paged_url = "$url&start=$start&limit=$limit";
+      $paged_url = "$url&start=$start&limit=" . UITDATABANK_API_PAGE_MAX_ITEMS;
       $response = $this->getDataFetcherPlugin()->getResponseContent($paged_url);
 
       // Convert objects to associative arrays.

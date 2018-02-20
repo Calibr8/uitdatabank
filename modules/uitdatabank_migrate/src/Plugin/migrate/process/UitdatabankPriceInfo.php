@@ -22,13 +22,15 @@ class UitdatabankPriceInfo extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $parsed = [];
 
-    foreach ($value as $index => $item) {
-      $parsed[$index] = [
-        'category' => $item['category'],
-        'name' => $item['name'],
-        'price' => $item['price'],
-        'price_currency' => $item['priceCurrency'],
-      ];
+    if ($value && is_array($value)) {
+      foreach ($value as $index => $item) {
+        $parsed[$index] = [
+          'category' => $item['category'],
+          'name' => $item['name'],
+          'price' => $item['price'],
+          'price_currency' => $item['priceCurrency'],
+        ];
+      }
     }
 
     return $parsed;
