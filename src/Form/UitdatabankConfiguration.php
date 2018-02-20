@@ -50,6 +50,7 @@ class UitdatabankConfiguration extends FormBase {
     $markup = sprintf('<p>%s</p>', implode('</p><p>', $instructions));
 
     $notes[] = $this->t('"embed=true" is always added.');
+    $notes[] = $this->t('Pagination using "start" and "limit" parameters is already handled.');
     $markup .= sprintf('<ol><li>%s</li></ol>', implode('</li><li>', $notes));
 
     $form['parameters'][''] = array(

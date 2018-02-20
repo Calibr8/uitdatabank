@@ -36,6 +36,11 @@ class UitdatabankMigrateHelper {
       $request_params[] = $parameters;
     }
 
+    // When performing an update run, add parameters to only getnew and modified
+    // items since last run.
+    // @see http://documentatie.uitdatabank.be/content/search_api_3/latest/searching/created-and-modified/
+    // @todo
+
     $request_params = '?' . implode('&', $request_params);
 
     if (!is_array($configuration['urls'])) {

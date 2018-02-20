@@ -19,7 +19,6 @@ class UitdatabankJson extends Json {
    */
   protected function getSourceData($url) {
     $start = 0;
-    $limit = UITDATABANK_API_PAGE_MAX_ITEMS;
     $final_source_data = $source_data = [];
 
     do {
@@ -52,13 +51,13 @@ class UitdatabankJson extends Json {
 
       $final_source_data = array_merge($final_source_data, $source_data);
 
-      $start += $limit;
+      $start += UITDATABANK_API_PAGE_MAX_ITEMS;
 
       // @todo: remove when API can handle more that 10000 items.
-      if ($start >= UITDATABANK_API_PAGE_MAX_ITEMS) {
+      if ($start >= (10000 - UITDATABANK_API_PAGE_MAX_ITEMS)) {
         break;
       }
-    } while (count($source_data) >= $limit);
+    } while (count($source_data) >= UITDATABANK_API_PAGE_MAX_ITEMS);
 
     return $final_source_data;
   }
