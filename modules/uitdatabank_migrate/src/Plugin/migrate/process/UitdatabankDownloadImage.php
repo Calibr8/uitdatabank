@@ -28,7 +28,7 @@ class UitdatabankDownloadImage extends Download {
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    $default_fid = \Drupal::config('uitdatabank.settings')->get('default_image');
+    $default_fid = \Drupal::config('uitdatabank.settings.defaults')->get('image');
     $default_image = [
       '@id' => '',
       'copyrightHolder' => '',

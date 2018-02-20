@@ -27,12 +27,12 @@ class UitdatabankConfiguration extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $settings = \Drupal::config('uitdatabank.settings');
+    $defaults = \Drupal::config('uitdatabank.settings.defaults');
 
-    $api_key = $settings->get('api_key');
     $form['api_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('API key'),
-      '#default_value' => $api_key,
+      '#default_value' => $settings->get('api_key'),
       '#required' => TRUE,
       '#description' => $this->t('Request your API key <a href=":url" target="_blank">here</a>', [':url' => UITDATABANK_API_KEY_REQUEST_URL]),
     ];
@@ -76,8 +76,15 @@ class UitdatabankConfiguration extends FormBase {
       '#default_value' => $settings->get('organizers'),
     ];
 
-    $fid = $settings->get('default_image');
-    $form['default_image'] = [
+
+    $form['defaults'] = array(
+      '#type' => 'details',
+      '#title' => $this->t('Defaults'),
+      '#open' => TRUE,
+    );
+
+    $fid = $defaults->get('image');
+    $form['defaults']['image'] = [
       '#type' => 'managed_file',
       '#title' => $this->t('Default image'),
       '#description' => $this->t('Used for Events and Places when no image is provided or copying of an image fails.'),
@@ -108,7 +115,11 @@ class UitdatabankConfiguration extends FormBase {
       ->set('events', $form_state->getValue('events'))
       ->set('places', $form_state->getValue('places'))
       ->set('organizers', $form_state->getValue('organizers'))
-      ->set('default_image', reset($form_state->getValue('default_image')))
+      ->save();
+
+    \Drupal::configFactory()
+      ->getEditable('uitdatabank.settings.defaults')
+      ->set('image', reset($form_state->getValue('image')))
       ->save();
 
     // @todo Check if we need to update media entities referencing the old fid
