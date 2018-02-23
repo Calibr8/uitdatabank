@@ -49,6 +49,13 @@ class UitdatabankMigrationLookup extends MigrationLookup {
       else {
         $source_id_values[$migration_id] = $value;
       }
+
+      // Catch cases where item to lookup is missing value for @id, which
+      // always should be present. (UiTdatabank API issue).
+      if (!reset($source_id_values[$migration_id])) {
+        break;
+      }
+
       // Break out of the loop as soon as a destination ID is found.
       if ($destination_ids = $migration->getIdMap()->lookupDestinationId($source_id_values[$migration_id])) {
         break;
