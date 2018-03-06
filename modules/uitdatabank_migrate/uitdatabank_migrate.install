@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Add/remove default UiTdatabank image.
+ */
+
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_install().
+ */
+function uitdatabank_install() {
+
+  // Create the uitdatabank directory and ensure it's writable.
+  $directory = file_default_scheme() . '://' . UITDATABANK_IMAGE_DIRECTORY;
+  $mode = isset($GLOBALS['install_state']['mode']) ? $GLOBALS['install_state']['mode'] : NULL;
+  if (file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS, $mode)) {
+
+    // Add default image as managed file.
+    $source = drupal_get_path('module', 'uitdatabank') . '/images/' . UITDATABANK_DEFAULT_IMAGE;
+    if (file_exists($source)) {
+      $path = file_unmanaged_copy($source, $directory, FILE_EXISTS_REPLACE);
+
+      if ($path) {
+        $file = File::create([
+          'uid' => 1,
+          'filename' => UITDATABANK_DEFAULT_IMAGE,
+          'uri' => $path,
+          'status' => 1,
+        ]);
+        $file->save();
+
+        if ($file->id()) {
+          \Drupal::configFactory()
+            ->getEditable('uitdatabank.settings.defaults')
+            ->set('image', $file->id())
+            ->save();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function uitdatabank_uninstall() {
+
+  // Remove default image.
+  $fid = \Drupal::config('uitdatabank.settings.defaults')->get('image');
+  if ($fid) {
+    file_delete($fid);
+  }
+
+  \Drupal::config('uitdatabank.settings.defaults')->delete();
+  \Drupal::config('uitdatabank.settings')->delete();
+
+  // Delete all uitdatabank managed files.
+  // @todo: check if necessary.
+}
