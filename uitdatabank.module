@@ -8,6 +8,7 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\media_entity\Entity\Media;
 
 define('UITDATABANK_DEFAULT_IMAGE', 'uitdatabank_default_image.jpg');
 define('UITDATABANK_IMAGE_DIRECTORY', 'uitdatabank');
@@ -93,6 +94,7 @@ function uitdatabank_form_node_organizer_uitdatabank_edit_form_alter(array &$for
     }
   }
 }
+
 /**
  * Implements hook_form_FORM_ID_alter() for node_form().
  */
@@ -121,4 +123,36 @@ function uitdatabank_form_node_place_uitdatabank_edit_form_alter(array &$form, F
       }
     }
   }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ *
+ * Delete related media entities when referencing event/place have been deleted.
+ */
+function uitdatabank_node_delete(EntityInterface $entity) {
+
+  $media_ids = [];
+
+  switch ($entity->bundle()) {
+
+    case 'event_uitdatabank':
+    case 'place_uitdatabank':
+
+      $ids = $entity->get('field_uitdatabank_media')->getValue();
+
+      foreach ($ids as $id) {
+        $media_ids[] = $id['target_id'];
+      }
+      break;
+  }
+
+  if ($media_ids) {
+    $media_entities = Media::loadMultiple($media_ids);
+
+    foreach ($media_entities as $entity) {
+      $entity->delete();
+    }
+  }
+
 }
