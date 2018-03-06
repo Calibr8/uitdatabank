@@ -53,6 +53,9 @@ function uitdatabank_uninstall() {
     file_delete($fid);
   }
 
+  \Drupal::config('uitdatabank.settings.defaults')->delete();
+  \Drupal::config('uitdatabank.settings')->delete();
+
   // Delete all uitdatabank managed files.
   // @todo: check if necessary.
 }
