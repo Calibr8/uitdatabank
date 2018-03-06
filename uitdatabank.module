@@ -154,5 +154,32 @@ function uitdatabank_node_delete(EntityInterface $entity) {
       $entity->delete();
     }
   }
+}
 
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function uitdatabank_node_presave(EntityInterface $entity) {
+
+  switch ($entity->bundle()) {
+
+    case 'event_uitdatabank':
+    case 'place_uitdatabank':
+
+      /*
+       * Items with workflowstatus REJECTED or DELETED must be kept unpublished.
+       * @see http://documentatie.uitdatabank.be/content/uitdatabank/latest/werking-uitdatabank/#items-met-de-status-approved-of-rejected
+       */
+      $workflowstatus = $entity->get('field_uitdatabank_workflowstatus')->getValue();
+      if ($workflowstatus) {
+
+        if (isset($workflowstatus[0]['value']) && in_array($workflowstatus[0]['value'], ['REJECTED', 'DELETED'])) {
+          $entity->setUnpublished();
+          $entity->set('publish_on', NULL);
+          $entity->set('unpublish_on', NULL);
+        }
+      }
+
+      break;
+  }
 }
