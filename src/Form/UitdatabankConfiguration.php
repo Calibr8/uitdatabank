@@ -12,6 +12,9 @@ define('UITDATABANK_API_DOCUMENTATION_URL', 'http://documentatie.uitdatabank.be/
  * Class UitdatabankConfiguration.
  *
  * @ingroup uitdatabank
+ *
+ * @todo: refactor using ConfigFormBase
+ * @see https://www.drupal.org/node/2407153
  */
 class UitdatabankConfiguration extends FormBase {
 
@@ -123,7 +126,7 @@ class UitdatabankConfiguration extends FormBase {
       ->save();
 
     // @todo Check if we need to update media entities referencing the old fid
-    // if fid has changed.
+    // if fid has changed and remove old file.
 
     $message = $this->t('UiTdatabank settings saved.');
     drupal_set_message($message);
