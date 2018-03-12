@@ -2,6 +2,9 @@
 
 namespace Drupal\uitdatabank_migrate\Utility;
 
+use Drupal\Component\Utility\Html;
+use Drupal\migrate\Row;
+
 /**
  * UitdatabankMigrateHelper.
  *
@@ -48,6 +51,32 @@ class UitdatabankMigrateHelper {
     }
 
     return $configuration;
+  }
+
+  /**
+   * Make sure Organizer has an id.
+   *
+   * UiTdatabank contains legacy organizers without id, which have not been
+   * given an id by Publiq.
+   * In that case, generate one, so we can at least use this one internally.
+   *
+   * @param \Drupal\migrate\Row $row
+   *   The row to check.
+   *
+   * @return \Drupal\migrate\Row
+   *   The validated row.
+   */
+  public static function validateOrganizerId(Row $row) {
+
+    $organizer = $row->getSourceProperty('organizer');
+
+    if (!isset($organizer['@id'])) {
+      $organizer['@id'] = Html::cleanCssIdentifier(strtolower($organizer['name']));
+    }
+
+    $row->setSourceProperty('organizer', $organizer);
+
+    return $row;
   }
 
 }

@@ -47,6 +47,8 @@ class Organizers extends Url {
     }
     unset($name, $value, $translatable_fields);
 
+    $row = UitdatabankMigrateHelper::validateOrganizerId($row);
+
     return parent::prepareRow($row);
   }
 

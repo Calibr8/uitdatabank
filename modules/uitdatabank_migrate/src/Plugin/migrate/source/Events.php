@@ -59,6 +59,8 @@ class Events extends Url {
     $row->setSourceProperty('age_max', isset($ages[1]) && $ages[1] ? $ages[1] : 100);
     unset($age, $ages, $index, $value);
 
+    $row = UitdatabankMigrateHelper::validateOrganizerId($row);
+
     return parent::prepareRow($row);
   }
 
