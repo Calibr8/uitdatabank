@@ -91,6 +91,10 @@ source:
       label: 'contactPoint/url'
       selector: contactPoint/url
     -
+      name: created
+      label: 'created'
+      selector: created
+    -
       name: creator
       label: 'creator'
       selector: creator
@@ -135,6 +139,10 @@ source:
       label: 'mediaObject'
       selector: mediaObject
     -
+      name: modified
+      label: 'modified'
+      selector: modified
+    -
       name: opening_hours
       label: 'openingHours'
       selector: openingHours
@@ -178,8 +186,14 @@ source:
     id:
       type: string
 process:
-  changed: insertiondate
-  created: insertiondate
+  created:
+    plugin: uitdatabank_format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    timezone: 'UTC'
+    settings:
+      validate_format: false
+    source: created
   field_uitdatabank_ages:
     plugin: uitdatabank_ages
     source: ages
@@ -266,6 +280,14 @@ process:
         description: field_uitdatabank_img_desc
     -
       plugin: uitdatabank_entity_generate
+  field_uitdatabank_modified:
+      plugin: uitdatabank_format_date
+      from_format: 'Y-m-d\TH:i:sO'
+      to_format: 'Y-m-d\TH:i:s'
+      timezone: 'UTC'
+      settings:
+        validate_format: false
+      source: modified
   field_uitdatabank_opening_hours:
       plugin: uitdatabank_opening_hours
       source: opening_hours

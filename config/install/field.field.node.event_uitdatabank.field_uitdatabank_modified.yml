@@ -2,19 +2,19 @@ langcode: nl
 status: true
 dependencies:
   config:
-    - field.storage.node.field_uitdatabank_opening_hours
+    - field.storage.node.field_uitdatabank_modified
     - node.type.event_uitdatabank
   module:
-    - uitdatabank_fields
-id: node.event_uitdatabank.field_uitdatabank_opening_hours
-field_name: field_uitdatabank_opening_hours
+    - datetime
+id: node.event_uitdatabank.field_uitdatabank_modified
+field_name: field_uitdatabank_modified
 entity_type: node
 bundle: event_uitdatabank
-label: 'Opening Hours'
+label: Modified
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: uitdatabank_opening_hours
+field_type: datetime
