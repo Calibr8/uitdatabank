@@ -72,9 +72,50 @@ class UitdatabankMigrateHelper {
 
     if (!isset($organizer['@id'])) {
       $organizer['@id'] = Html::cleanCssIdentifier(strtolower($organizer['name']));
+
+      $row->setSourceProperty('organizer', $organizer);
     }
 
-    $row->setSourceProperty('organizer', $organizer);
+    return $row;
+  }
+
+  /**
+   * Make sure Place has an id.
+   *
+   * UiTdatabank contains legacy places without id, which have not been
+   * given an id by Publiq.
+   * In that case, generate one, so we can at least use this one internally.
+   *
+   * @param \Drupal\migrate\Row $row
+   *   The row to check.
+   *
+   * @return \Drupal\migrate\Row
+   *   The validated row.
+   */
+  public static function validatePlaceId(Row $row) {
+
+    $location = $row->getSourceProperty('location');
+
+    if (!isset($location['@id'])) {
+      $name = NULL;
+
+      if (is_array($location['name'])) {
+        if (isset($location['name']['nl'])) {
+          $name = $location['name']['nl'];
+        }
+        else {
+          $name = reset($location['name']);
+        }
+      }
+      elseif (!empty($location['name'])) {
+        $name = $location['name'];
+      }
+
+      if ($name) {
+        $location['@id'] = Html::cleanCssIdentifier(strtolower($name));
+      }
+      $row->setSourceProperty('location', $location);
+    }
 
     return $row;
   }

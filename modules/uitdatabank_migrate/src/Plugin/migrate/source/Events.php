@@ -60,6 +60,7 @@ class Events extends Url {
     unset($age, $ages, $index, $value);
 
     $row = UitdatabankMigrateHelper::validateOrganizerId($row);
+    $row = UitdatabankMigrateHelper::validatePlaceId($row);
 
     return parent::prepareRow($row);
   }
