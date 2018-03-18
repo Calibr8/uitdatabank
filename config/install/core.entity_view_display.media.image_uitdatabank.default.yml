@@ -8,7 +8,6 @@ dependencies:
     - media_entity.bundle.image_uitdatabank
   module:
     - image
-    - user
 id: media.image_uitdatabank.default
 targetEntityType: media
 bundle: image_uitdatabank

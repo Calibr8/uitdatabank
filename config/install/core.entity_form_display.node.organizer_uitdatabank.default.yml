@@ -14,7 +14,6 @@ dependencies:
     - node.type.organizer_uitdatabank
   module:
     - address
-    - geofield
     - link
     - path
     - scheduler
