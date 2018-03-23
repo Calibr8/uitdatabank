@@ -56,7 +56,11 @@ class UitdatabankOpeningHoursFormatter extends FormatterBase {
       $rows[] = sprintf($markup_row, Html::cleanCssIdentifier($name), $this->t(ucfirst($name)), implode(' / ', $day));
     }
 
-    return [['#markup' => sprintf($markup_wrapper, implode('', $rows))]];
+    if (!empty($rows)) {
+      return [['#markup' => sprintf($markup_wrapper, implode('', $rows))]];
+    }
+
+    return [];
   }
 
 }
