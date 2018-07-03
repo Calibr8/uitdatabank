@@ -30,21 +30,23 @@ class UitdatabankCheckIfImage extends ProcessPluginBase {
    *   The destination property currently worked on. This is only used together
    *   with the $row above.
    *
-   * @return mixed
+   * @return array
    *   The input value, $value, if it is not empty.
-   *
-   * @throws \Drupal\migrate\MigrateSkipProcessException
-   *   Thrown if the source property is not set and rest of the process should
-   *   be skipped.
    */
   public function process($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
     if (is_array($value)) {
+      $pattern = "/\.(jpe?g|png|gif)$/i";
+
       foreach ($value as $index => $item) {
-        if ($item['@type'] != 'schema:ImageObject') {
+
+        if (isset($item['contentUrl']) && !preg_match($pattern, $item['contentUrl'])) {
           unset($value[$index]);
         }
       }
+    }
+    else {
+      $value = [];
     }
 
     return $value;
