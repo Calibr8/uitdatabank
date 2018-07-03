@@ -21,9 +21,18 @@ class UitdatabankBookingUrl extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
     if ($value) {
+
+      // Catch translated url labels names.
+      $label = $row->getSourceProperty('bookinginfo_urllabel');
+      if (is_array($label)) {
+        $langcode = $row->getSourceProperty('language');
+        $langcode = $langcode ?: 'nl';
+        $label = $label[$langcode];
+      }
+
       $parsed = [
         'uri' => $value,
-        'title' => $row->getSourceProperty('bookinginfo_urllabel'),
+        'title' => $label,
       ];
 
       return $parsed;

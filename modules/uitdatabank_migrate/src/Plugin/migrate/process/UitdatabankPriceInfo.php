@@ -24,9 +24,18 @@ class UitdatabankPriceInfo extends ProcessPluginBase {
 
     if ($value && is_array($value)) {
       foreach ($value as $index => $item) {
+
+        // Catch translated tariff names.
+        $name = $item['name'];
+        if (is_array($name)) {
+          $langcode = $row->getSourceProperty('language');
+          $langcode = $langcode ?: 'nl';
+          $name = $name[$langcode];
+        }
+
         $parsed[$index] = [
           'category' => $item['category'],
-          'name' => $item['name'],
+          'name' => $name,
           'price' => $item['price'],
           'price_currency' => $item['priceCurrency'],
         ];
