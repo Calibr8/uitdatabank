@@ -32,6 +32,7 @@ class UitdatabankMigrateHelper {
     // Pagination is handled in getSourceData().
     // @see Drupal\uitdatabank_migrate\Plugin\migrate_plus\data_parser\UitdatabankJson
     $request_params = [
+      // Always get full data.
       'embed=true',
     ];
 
@@ -39,7 +40,24 @@ class UitdatabankMigrateHelper {
       $request_params[] = $parameters;
     }
 
-    // When performing an update run, add parameters to only getnew and modified
+    if (in_array($endpoint_name, ['events', 'places'])) {
+
+      // Always get items, otherwise we might miss items we do need to update.
+      $request_params[] = 'availableFrom=*';
+      $request_params[] = 'availableTo=*';
+    }
+
+    if (in_array($endpoint_name, ['organizers', 'places'])) {
+
+      // Add query to limit to already imported entities by ID
+      // => migrate map => fetch all "sourceid1" and 'destid1' value
+      // query based using
+      // - 'sourceid1' for valid id's
+      // - name for the 'dummies' without id, by looking up using 'destid1'.
+      //
+    }
+
+    // When performing an update run, add parameters to only get new and modified
     // items since last run.
     // @see http://documentatie.uitdatabank.be/content/search_api_3/latest/searching/created-and-modified/
     // @todo
