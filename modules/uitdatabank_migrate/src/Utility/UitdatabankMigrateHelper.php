@@ -23,7 +23,7 @@ class UitdatabankMigrateHelper {
    * @return array
    *   Updated configuration array.
    *
-   * @see \Drupal\uitdatabank\Form\UitdatabankConfiguration
+   * @see \Drupal\uitdatabank\Form\Configuration
    */
   public static function addEndpointParameters(array $configuration, $endpoint_name) {
 

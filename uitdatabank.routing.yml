@@ -1,7 +1,7 @@
 uitdatabank.config:
   path: 'admin/config/services/uitdatabank'
   defaults:
-    _form: '\Drupal\uitdatabank\Form\UitdatabankConfiguration'
+    _form: '\Drupal\uitdatabank\Form\Configuration'
     _title: 'UiTdatabank API Configuration'
   requirements:
       _permission: 'administer uitdatabank'

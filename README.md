@@ -16,3 +16,5 @@ Requirements:
 * Remove upper import limit of 10000 when paging issues in API are fixed, in UitdatabankJson.php.
 * Find a way to update only present organizers and places, including those without an id.
 * Find a way to cleanup obsolete events, organizers, places, media,...
+* Add 'page' size option.
+* Update configuration form notes.

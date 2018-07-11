@@ -2,55 +2,58 @@
 
 namespace Drupal\uitdatabank\Form;
 
-use Drupal\Core\Form\FormBase;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\uitdatabank\ConfigurationManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class UitdatabankConfiguration.
+ * Class Configuration.
  *
  * @ingroup uitdatabank
- *
- * @todo: refactor using ConfigFormBase
- * @see https://www.drupal.org/node/2407153
  */
-class UitdatabankConfiguration extends FormBase {
+class Configuration extends ConfigFormBase {
 
   /**
-   * API key/project registration url.
+   * The configuration manager.
    *
-   * @var string
+   * @var \Drupal\uitdatabank\ConfigurationManager
    */
-  const API_KEY_REQUEST_URL = 'https://projectaanvraag.uitdatabank.be';
+  protected $configManager;
 
   /**
-   * API documentation url.
+   * Constructs a \Drupal\system\ConfigFormBase object.
    *
-   * @var string
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The factory for configuration objects.
+   * @param \Drupal\uitdatabank\ConfigurationManager $config_manager
+   *   The configuration manager.
    */
-  const DOCUMENTATION_URL = 'http://documentatie.uitdatabank.be/content/search_api_3/latest/start.html';
+  public function __construct(ConfigFactoryInterface $config_factory, ConfigurationManager $config_manager) {
+    parent::__construct($config_factory);
+    $this->configManager = $config_manager;
+  }
 
   /**
-   * Image directory.
-   *
-   * @var string
+   * {@inheritdoc}
    */
-  const IMAGE_DIRECTORY = 'uitdatabank';
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('config.factory'),
+      $container->get('uitdatabank.configuration_manager')
+    );
+  }
 
   /**
-   * Default/fallback image.
-   *
-   * @var string
+   * {@inheritdoc}
    */
-  const DEFAULT_IMAGE = 'uitdatabank_default_image.jpg';
-
-  /**
-   * Max page items supported by api.
-   *
-   * @var int
-   *
-   * @todo: update when /places doesn't return '500' error with pages > 1000.
-   */
-  const API_PAGE_MAX_ITEMS = 1000;
+  protected function getEditableConfigNames() {
+    return [
+      'uitdatabank.settings',
+      'uitdatabank.settings.defaults',
+    ];
+  }
 
   /**
    * {@inheritdoc}
@@ -63,15 +66,15 @@ class UitdatabankConfiguration extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $settings = \Drupal::config('uitdatabank.settings');
-    $defaults = \Drupal::config('uitdatabank.settings.defaults');
+    $settings = $this->getConfig();
+    $defaults = $this->getConfigDefaults();
 
     $form['api_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('API key'),
       '#default_value' => $settings->get('api_key'),
       '#required' => TRUE,
-      '#description' => $this->t('Request your API key <a href=":url" target="_blank">here</a>', [':url' => static::API_KEY_REQUEST_URL]),
+      '#description' => $this->t('Request your API key <a href=":url" target="_blank">here</a>', [':url' => $this->configManager->getApiKeyRequestUrl()]),
     ];
 
     $form['parameters'] = array(
@@ -82,7 +85,7 @@ class UitdatabankConfiguration extends FormBase {
 
     // @todo: more extensive description of what is default, expected and possible.
     $instructions[] = $this->t('Add parameters per endpoint to narrow the imported/synced dataset for each content type.');
-    $instructions[] = $this->t('Explore the <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => static::DOCUMENTATION_URL]);
+    $instructions[] = $this->t('Explore the <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => $this->configManager->getDocumentationUrl()]);
     $instructions[] = $this->t('<strong>Notes</strong>');
     $markup = sprintf('<p>%s</p>', implode('</p><p>', $instructions));
 
@@ -90,7 +93,7 @@ class UitdatabankConfiguration extends FormBase {
     $notes[] = $this->t('Pagination using "start" and "limit" parameters is already handled.');
     $markup .= sprintf('<ol><li>%s</li></ol>', implode('</li><li>', $notes));
 
-    $form['parameters'][''] = array(
+    $form['parameters']['notes'] = array(
       '#type' => 'item',
       '#markup' => $markup,
     );
@@ -125,7 +128,7 @@ class UitdatabankConfiguration extends FormBase {
       '#type' => 'managed_file',
       '#title' => $this->t('Default image'),
       '#description' => $this->t('Used for Events and Places when no image is provided or copying of an image fails.'),
-      '#upload_location' => file_default_scheme() . '://' . static::IMAGE_DIRECTORY,
+      '#upload_location' => file_default_scheme() . '://' . $this->configManager->getImageDirectory(),
       '#default_value' => $fid ? [$fid] : NULL,
       '#upload_validators' => [
         'file_validate_extensions' => ['gif png jpg jpeg'],
@@ -146,24 +149,60 @@ class UitdatabankConfiguration extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    \Drupal::configFactory()
-      ->getEditable('uitdatabank.settings')
-      ->set('api_key', $form_state->getValue('api_key'))
-      ->set('events', $form_state->getValue('events'))
-      ->set('places', $form_state->getValue('places'))
-      ->set('organizers', $form_state->getValue('organizers'))
-      ->save();
+    $default_setting_names = [
+      'image',
+    ];
 
-    \Drupal::configFactory()
-      ->getEditable('uitdatabank.settings.defaults')
-      ->set('image', reset($form_state->getValue('image')))
-      ->save();
+    $settings = $this->getConfig();
+    $defaults = $this->getConfigDefaults();
+
+
+    $values = $form_state->cleanValues()->getValues();
+    unset($values['notes']);
+
+    // Process default settings.
+    foreach ($default_setting_names as $name) {
+      $setting = is_array($values[$name]) ? reset($values[$name]) : $values[$name];
+      $defaults->set($name, $setting);
+      unset($values[$name]);
+    }
+    $defaults->save();
+
+    // Process other settings.
+    foreach ($values as $key => $value) {
+      $value = is_array($value) ? reset($value) : $value;
+      $settings->set($key, $value);
+    }
+    $settings->save();
 
     // @todo Check if we need to update media entities referencing the old fid
     // if fid has changed and remove old file.
 
     $message = $this->t('UiTdatabank settings saved.');
     drupal_set_message($message);
+  }
+
+  /**
+   * Get configuration, without defaults.
+   *
+   * @return \Drupal\Core\Config\Config
+   *   Editable config object.
+   */
+  private function getConfig() {
+    return $this->config('uitdatabank.settings');
+  }
+
+  /**
+   * Get defaults configuration.
+   *
+   * This configuration includes:
+   *  - default/fallback image fid.
+   *
+   * @return \Drupal\Core\Config\Config
+   *   Editable config object.
+   */
+  private function getConfigDefaults() {
+    return $this->config('uitdatabank.settings.defaults');
   }
 
 }

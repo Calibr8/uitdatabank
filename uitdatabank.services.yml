@@ -1,0 +1,4 @@
+services:
+  uitdatabank.configuration_manager:
+    class: Drupal\uitdatabank\ConfigurationManager
+    arguments: []

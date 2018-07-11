@@ -3,7 +3,7 @@
 namespace Drupal\uitdatabank_migrate\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
-use Drupal\uitdatabank\Form\UitdatabankConfiguration;
+use Drupal\uitdatabank\ConfigurationManager;
 
 /**
  * Obtain JSON data for migration, with paged results.
@@ -22,7 +22,9 @@ class UitdatabankJson extends Json {
     $start = 0;
     $final_source_data = $source_data = [];
 
-    $page_max_item = UitdatabankConfiguration::API_PAGE_MAX_ITEMS;
+    // @todo: use config variable for page size, and check with static upper
+    // limit as long as paging issue exists.
+    $page_max_item = ConfigurationManager::API_PAGE_MAX_ITEMS;
 
     do {
       $paged_url = "$url&start=$start&limit=" . $page_max_item;
