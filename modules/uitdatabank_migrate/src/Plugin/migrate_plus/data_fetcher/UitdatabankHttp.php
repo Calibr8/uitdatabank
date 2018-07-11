@@ -20,7 +20,6 @@ class UitdatabankHttp extends Http {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->httpClient = \Drupal::httpClient();
 
     // Add API key to all request, throw error if not configured.
     $settings = \Drupal::config('uitdatabank.settings');
