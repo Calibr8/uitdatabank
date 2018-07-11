@@ -270,7 +270,7 @@ process:
   field_uitdatabank_workflowstatus: workflow_status
   langcode:
     plugin: default_value
-    strict: TRUE
+    strict: true
     default_value: nl
     source: language
   publish_on:
@@ -281,9 +281,6 @@ process:
     settings:
       validate_format: false
     source: available_from
-  status:
-    plugin: default_value
-    default_value: 1
   title: name
   type:
     plugin: default_value
@@ -299,6 +296,9 @@ process:
     settings:
       validate_format: false
     source: available_to
+  status:
+    plugin: uitdatabank_status
+    source: '@unpublish_on'
 destination:
   plugin: 'entity:node'
 migration_dependencies: {  }

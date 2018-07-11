@@ -85,7 +85,7 @@ process:
   field_uitdatabank_organizer_url: url
   langcode:
     plugin: default_value
-    strict: TRUE
+    strict: true
     default_value: nl
   status:
     plugin: default_value
