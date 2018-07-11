@@ -54,7 +54,7 @@ class UitdatabankJson extends Json {
       $start += UITDATABANK_API_PAGE_MAX_ITEMS;
 
       // @todo: remove when API can handle more that 10000 items.
-      if ($start >= (10000 - UITDATABANK_API_PAGE_MAX_ITEMS)) {
+      if ($start >= 10000) {
         break;
       }
     } while (count($source_data) >= UITDATABANK_API_PAGE_MAX_ITEMS);
