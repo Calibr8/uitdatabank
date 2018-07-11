@@ -3,6 +3,7 @@
 namespace Drupal\uitdatabank_migrate\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
+use Drupal\uitdatabank\Form\UitdatabankConfiguration;
 
 /**
  * Obtain JSON data for migration, with paged results.
@@ -21,8 +22,10 @@ class UitdatabankJson extends Json {
     $start = 0;
     $final_source_data = $source_data = [];
 
+    $page_max_item = UitdatabankConfiguration::API_PAGE_MAX_ITEMS;
+
     do {
-      $paged_url = "$url&start=$start&limit=" . UITDATABANK_API_PAGE_MAX_ITEMS;
+      $paged_url = "$url&start=$start&limit=" . $page_max_item;
       $response = $this->getDataFetcherPlugin()->getResponseContent($paged_url);
 
       // Convert objects to associative arrays.
@@ -51,13 +54,13 @@ class UitdatabankJson extends Json {
 
       $final_source_data = array_merge($final_source_data, $source_data);
 
-      $start += UITDATABANK_API_PAGE_MAX_ITEMS;
+      $start += $page_max_item;
 
       // @todo: remove when API can handle more that 10000 items.
       if ($start >= 10000) {
         break;
       }
-    } while (count($source_data) >= UITDATABANK_API_PAGE_MAX_ITEMS);
+    } while (count($source_data) >= $page_max_item);
 
     return $final_source_data;
   }

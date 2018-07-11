@@ -5,16 +5,10 @@
  * Module code.
  */
 
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\media_entity\Entity\Media;
-
-define('UITDATABANK_DEFAULT_IMAGE', 'uitdatabank_default_image.jpg');
-define('UITDATABANK_IMAGE_DIRECTORY', 'uitdatabank');
-// Max page limit is 10000, although not documented.
-// @todo: update when /places doesn't return '500' error with pages > 1000.
-define('UITDATABANK_API_PAGE_MAX_ITEMS', 1000);
 
 /**
  * Implements hook_entity_view().

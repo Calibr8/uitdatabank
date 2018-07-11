@@ -6,6 +6,7 @@
  */
 
 use Drupal\file\Entity\File;
+use Drupal\uitdatabank\Form\UitdatabankConfiguration;
 
 /**
  * Implements hook_install().
@@ -13,19 +14,21 @@ use Drupal\file\Entity\File;
 function uitdatabank_install() {
 
   // Create the uitdatabank directory and ensure it's writable.
-  $directory = file_default_scheme() . '://' . UITDATABANK_IMAGE_DIRECTORY;
+  $directory = file_default_scheme() . '://' . UitdatabankConfiguration::IMAGE_DIRECTORY;
   $mode = isset($GLOBALS['install_state']['mode']) ? $GLOBALS['install_state']['mode'] : NULL;
   if (file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS, $mode)) {
 
+
+    $default_image = UitdatabankConfiguration::DEFAULT_IMAGE;
     // Add default image as managed file.
-    $source = drupal_get_path('module', 'uitdatabank') . '/images/' . UITDATABANK_DEFAULT_IMAGE;
+    $source = drupal_get_path('module', 'uitdatabank') . "/images/$default_image";
     if (file_exists($source)) {
       $path = file_unmanaged_copy($source, $directory, FILE_EXISTS_REPLACE);
 
       if ($path) {
         $file = File::create([
           'uid' => 1,
-          'filename' => UITDATABANK_DEFAULT_IMAGE,
+          'filename' => $default_image,
           'uri' => $path,
           'status' => 1,
         ]);

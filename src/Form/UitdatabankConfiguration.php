@@ -5,9 +5,6 @@ namespace Drupal\uitdatabank\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-define('UITDATABANK_API_KEY_REQUEST_URL', 'https://projectaanvraag.uitdatabank.be');
-define('UITDATABANK_API_DOCUMENTATION_URL', 'http://documentatie.uitdatabank.be/content/search_api_3/latest/');
-
 /**
  * Class UitdatabankConfiguration.
  *
@@ -17,6 +14,43 @@ define('UITDATABANK_API_DOCUMENTATION_URL', 'http://documentatie.uitdatabank.be/
  * @see https://www.drupal.org/node/2407153
  */
 class UitdatabankConfiguration extends FormBase {
+
+  /**
+   * API key/project registration url.
+   *
+   * @var string
+   */
+  const API_KEY_REQUEST_URL = 'https://projectaanvraag.uitdatabank.be';
+
+  /**
+   * API documentation url.
+   *
+   * @var string
+   */
+  const DOCUMENTATION_URL = 'http://documentatie.uitdatabank.be/content/search_api_3/latest/start.html';
+
+  /**
+   * Image directory.
+   *
+   * @var string
+   */
+  const IMAGE_DIRECTORY = 'uitdatabank';
+
+  /**
+   * Default/fallback image.
+   *
+   * @var string
+   */
+  const DEFAULT_IMAGE = 'uitdatabank_default_image.jpg';
+
+  /**
+   * Max page items supported by api.
+   *
+   * @var int
+   *
+   * @todo: update when /places doesn't return '500' error with pages > 1000.
+   */
+  const API_PAGE_MAX_ITEMS = 1000;
 
   /**
    * {@inheritdoc}
@@ -37,7 +71,7 @@ class UitdatabankConfiguration extends FormBase {
       '#title' => $this->t('API key'),
       '#default_value' => $settings->get('api_key'),
       '#required' => TRUE,
-      '#description' => $this->t('Request your API key <a href=":url" target="_blank">here</a>', [':url' => UITDATABANK_API_KEY_REQUEST_URL]),
+      '#description' => $this->t('Request your API key <a href=":url" target="_blank">here</a>', [':url' => static::API_KEY_REQUEST_URL]),
     ];
 
     $form['parameters'] = array(
@@ -48,7 +82,7 @@ class UitdatabankConfiguration extends FormBase {
 
     // @todo: more extensive description of what is default, expected and possible.
     $instructions[] = $this->t('Add parameters per endpoint to narrow the imported/synced dataset for each content type.');
-    $instructions[] = $this->t('Explore the <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => UITDATABANK_API_DOCUMENTATION_URL]);
+    $instructions[] = $this->t('Explore the <a href=":url" target="_blank">official documentation</a> to find all available parameters.', [':url' => static::DOCUMENTATION_URL]);
     $instructions[] = $this->t('<strong>Notes</strong>');
     $markup = sprintf('<p>%s</p>', implode('</p><p>', $instructions));
 
@@ -91,7 +125,7 @@ class UitdatabankConfiguration extends FormBase {
       '#type' => 'managed_file',
       '#title' => $this->t('Default image'),
       '#description' => $this->t('Used for Events and Places when no image is provided or copying of an image fails.'),
-      '#upload_location' => file_default_scheme() . '://' . UITDATABANK_IMAGE_DIRECTORY,
+      '#upload_location' => file_default_scheme() . '://' . static::IMAGE_DIRECTORY,
       '#default_value' => $fid ? [$fid] : NULL,
       '#upload_validators' => [
         'file_validate_extensions' => ['gif png jpg jpeg'],
