@@ -38,7 +38,7 @@ class Places extends Url {
       'name',
     ];
     $langcode = $row->getSourceProperty('language');
-    $langcode = $langcode?: 'nl';
+    $langcode = $langcode ?: 'nl';
     foreach ($translatable_fields as $name) {
       $value = $row->getSourceProperty($name);
 
