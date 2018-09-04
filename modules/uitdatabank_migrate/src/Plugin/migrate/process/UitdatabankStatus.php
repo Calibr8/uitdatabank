@@ -28,7 +28,7 @@ class UitdatabankStatus extends ProcessPluginBase {
 
     /*
      * Items with workflowstatus REJECTED or DELETED must be kept unpublished.
-     * @see http://documentatie.uitdatabank.be/content/uitdatabank/latest/werking-uitdatabank/#items-met-de-status-approved-of-rejected
+     * @see http://documentatie.uitdatabank.be/content/uitdatabank/latest/werking-uitdatabank.html#items-met-de-status-approved-of-rejected
      */
     if ($status) {
       $workflow_status = $row->getSourceProperty('workflow_status');

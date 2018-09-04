@@ -4,7 +4,7 @@
 * GET only.
 * Configurable parameters.
 
-http://documentatie.uitdatabank.be/content/search_api_3/latest/
+http://documentatie.uitdatabank.be/content/search_api_3/latest/start.html
 
 Requirements:
 

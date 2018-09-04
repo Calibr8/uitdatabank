@@ -40,9 +40,16 @@ class UitdatabankMigrateHelper {
       $request_params[] = $parameters;
     }
 
+    // @todo:  When performing an update run, add parameters to only get new and modified
+    // items since last run. Use last sinc date instead of * for availableFrom and ommit availableTo
+    // @see http://documentatie.uitdatabank.be/content/search_api_3/latest/searching/created-and-modified.html
     if (in_array($endpoint_name, ['events', 'places'])) {
 
-      // Always get items, otherwise we might miss items we do need to update.
+      // Make sure we get items with workflow status DELETED too, so we know
+      // we have to force unpublish them.
+      $request_params[] = 'workflowStatus=*';
+
+      // Always get all items, otherwise we might miss items we do need to update.
       $request_params[] = 'availableFrom=*';
       $request_params[] = 'availableTo=*';
     }
@@ -56,11 +63,6 @@ class UitdatabankMigrateHelper {
       // - name for the 'dummies' without id, by looking up using 'destid1'.
       //
     }
-
-    // When performing an update run, add parameters to only get new and modified
-    // items since last run.
-    // @see http://documentatie.uitdatabank.be/content/search_api_3/latest/searching/created-and-modified/
-    // @todo
 
     $request_params = '?' . implode('&', $request_params);
 
@@ -136,6 +138,24 @@ class UitdatabankMigrateHelper {
     }
 
     return $row;
+  }
+
+  /**
+   * @todo: function description.
+   *
+   * @param array $configuration
+   *   Migrate source plugin configuration.
+   * @param string $endpoint_name
+   *   Endpoint settings name.
+   *
+   * @return array
+   *   Updated configuration array.
+   *
+   * @see \Drupal\uitdatabank\Form\Configuration
+   */
+  public function getSourceAndDestinyIds (array $configuration, $endpoint_name = 'places') {
+
+   // @todo.
   }
 
 }
