@@ -108,14 +108,37 @@ class Configuration extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Parameters for https://search.uitdatabank.be/places/'),
       '#default_value' => $settings->get('places'),
+      '#states' => [
+        'disabled' => [
+          ':input[name=places_existing_only]' => [
+            'checked' => TRUE,
+          ],
+        ],
+      ],
+    ];
+    $form['parameters']['places_existing_only'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Only update existing places, fetched through events.'),
+      '#default_value' => $settings->get('places_existing_only'),
     ];
 
     $form['parameters']['organizers'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Parameters for https://search.uitdatabank.be/organizers/'),
       '#default_value' => $settings->get('organizers'),
+      '#states' => [
+        'disabled' => [
+          ':input[name=organizers_existing_only]' => [
+            'checked' => TRUE,
+          ],
+        ],
+      ],
     ];
-
+    $form['parameters']['organizers_existing_only'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Only update existing organizers, fetched through events.'),
+      '#default_value' => $settings->get('places_existing_only'),
+    ];
 
     $form['defaults'] = array(
       '#type' => 'details',
