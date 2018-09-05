@@ -23,8 +23,13 @@ class UitdatabankStatus extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 
-    $now = \Drupal::time()->getCurrentTime();
-    $status = (int) ($value > $now);
+    if (empty($value)) {
+      $status = 1;
+    }
+    else {
+      $now = \Drupal::time()->getCurrentTime();
+      $status = (int) ($value > $now);
+    }
 
     /*
      * Items with workflowstatus REJECTED or DELETED must be kept unpublished.
